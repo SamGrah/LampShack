@@ -1,0 +1,11 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "window.title": "Lamp Shack Site",
+    "liveServer.settings.port": 5501
+  }
+}
