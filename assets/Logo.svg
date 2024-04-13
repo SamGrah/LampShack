@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="52.186676mm"
+   height="10.155123mm"
+   viewBox="0 0 52.186676 10.155123"
+   version="1.1"
+   id="svg1"
+   xml:space="preserve"
+   inkscape:export-filename="Logo.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:export-bgcolor="#ffffff77" /><defs
+     id="defs1" /><g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-24.801566,-18.585937)"><text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.175px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke-width:0.264583"
+       x="34.020981"
+       y="27.380247"
+       id="text8"><tspan
+         sodipodi:role="line"
+         id="tspan8"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:7.05556px;font-family:'Lucida Grande';-inkscape-font-specification:'Lucida Grande, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;stroke-width:0.264583"
+         x="34.020981"
+         y="27.380247">Lamp Shack</tspan></text><g
+       style="fill:#000000"
+       id="g9"
+       transform="matrix(0.1751885,0,0,0.17616662,24.352645,18.585937)"><path
+         d="m 11.3125,0 -8.75,24 h 44.875 l -8.75,-24 z m 7.34375,25 C 18.261719,25.667969 18,26.453125 18,27.40625 c 0,2.792969 0.9375,4.605469 1.84375,6.34375 0.871094,1.667969 1.773438,3.402344 2.0625,6.25 h 6.1875 c 0.289063,-2.847656 1.191406,-4.582031 2.0625,-6.25 C 31.0625,32.011719 32,30.199219 32,27.40625 32,26.453125 31.734375,25.667969 31.34375,25 Z M 17,41 c -1.101562,0 -2,0.898438 -2,2 h 20 c 0,-1.101562 -0.898437,-2 -2,-2 z m -5,3 c -1.101562,0 -2,0.898438 -2,2 v 4 h 30 v -4 c 0,-1.101562 -0.898437,-2 -2,-2 z"
+         id="path1" /></g></g></svg>
