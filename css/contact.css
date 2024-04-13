@@ -98,7 +98,7 @@
     line-height: 1.2em;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColor);
     display: block;
   }
   #cs-contact-265 .cs-link {
@@ -107,7 +107,7 @@
     line-height: 1.2em;
     text-decoration: none;
     margin-bottom: 1.25rem;
-    color: var(--bodyTextColorWhite);
+    color: var(--bodyTextColor);
     display: block;
     position: relative;
   }
