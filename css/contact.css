@@ -194,6 +194,7 @@
     gap: 5rem;
   }
   #cs-contact-265 .cs-left-section {
+    flex-grow: 1;
     max-width: 39.375rem;
   }
   #cs-contact-265 #cs-form-265 label {
