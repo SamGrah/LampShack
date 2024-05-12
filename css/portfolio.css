@@ -85,14 +85,14 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: -webkit-transform 0.25s ease;
-    transition: transform 0.25s ease;
+    /* transition: -webkit-transform 0.25s ease; */
+    /* transition: transform 0.25s ease; */
   }
 
-  #gallery-48 .cs-picture img:active{
+  /* #gallery-48 .cs-picture img:active{
     -webkit-transform: scale(2);
     transform: scale(2);   
-  }
+  } */
 
   #gallery-48 .cs-row-1 .cs-picture-1 {
     height: 35.4375em;

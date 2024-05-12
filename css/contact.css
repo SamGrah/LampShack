@@ -50,11 +50,11 @@
     height: 4rem;
     margin-top: 0.25rem;
     padding-left: 1.25rem;
-    border: 1px solid #B4B2C7;
+    border: 1px solid #b4b2c7;
     border-radius: 0.25rem;
     /* prevents border & padding from affecting height */
     box-sizing: border-box;
-    transition: border .3s;
+    transition: border 0.3s;
   }
   #cs-contact-265 #cs-form-265 input:hover,
   #cs-contact-265 #cs-form-265 textarea:hover {
@@ -101,7 +101,8 @@
     color: var(--bodyTextColor);
     display: block;
   }
-  #cs-contact-265 .cs-link {
+  #cs-contact-265 .cs-link,
+  .cs-text {
     /* 16px - 20px */
     font-size: clamp(1rem, 3vw, 1.25rem);
     line-height: 1.2em;
@@ -113,7 +114,7 @@
   }
   #cs-contact-265 .cs-link:before {
     /* Animated underline */
-    content: '';
+    content: "";
     width: 0%;
     height: 2px;
     /* current color of the parent */
@@ -123,7 +124,7 @@
     display: block;
     bottom: -0.125rem;
     left: 0;
-    transition: width .3s;
+    transition: width 0.3s;
   }
   #cs-contact-265 .cs-link:hover:before {
     width: 100%;
@@ -143,16 +144,20 @@
     top: 0;
     left: 0;
     z-index: -1;
-    transition: transform .6s;
+    transition: transform 0.6s;
   }
   #cs-contact-265 .cs-bg-picture:before {
     /* background color overlay */
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     height: 100%;
     width: 100%;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
     top: 0;
     left: 0;
     z-index: 1;
