@@ -17,7 +17,7 @@
   }
   #hero-81:before {
     /* Left side of the triangle */
-    content: '';
+    content: "";
     width: 31.25rem;
     /* make really long so it covers the whole screen all the way to desktop */
     height: 250rem;
@@ -34,7 +34,7 @@
   }
   #hero-81:after {
     /* Right side of the triangle */
-    content: '';
+    content: "";
     width: 31.25rem;
     height: 250rem;
     background: #fff;
@@ -59,11 +59,11 @@
   }
   #hero-81 .cs-background:before {
     /* Overlay */
-    content: '';
+    content: "";
     width: 100%;
     height: 100%;
     background: #000;
-    opacity: .7;
+    opacity: 0.7;
     position: absolute;
     display: block;
     top: 0;
@@ -99,7 +99,7 @@
   }
   #hero-81 .cs-title:after {
     /* Divider Line */
-    content: '';
+    content: "";
     /* 60px - 100px */
     width: clamp(3.75rem, 9.5vw, 6.25rem);
     /* 4px - 8px */
@@ -128,7 +128,7 @@
 /* Desktop - 1300px (To make image background parallax) */
 @media only screen and (min-width: 81.25rem) {
   #hero-81 {
-    background: url("/assets/workbench.jpeg");
+    background: url("https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -146,7 +146,7 @@
     background: var(--dark);
   }
   body.dark-mode #hero-81 .cs-background:before {
-    opacity: .85;
+    opacity: 0.85;
   }
 }
 /*-- -------------------------- -->
@@ -168,7 +168,7 @@
     /* negative margin pulls it up on top of the hero section */
     /* -46px to -76px - we're calculating whatever clamp is and multiplying by -1
             to make the value negative since clamp doesn't work with negative values */
-    margin-top: calc(clamp(5rem, 13vw, 4.75rem)*-1);
+    margin-top: calc(clamp(5rem, 13vw, 4.75rem) * -1);
     /* 40px - 60px top and bottom, 16px - 60px left & right */
     padding: clamp(2.5rem, 4.7vw, 3.75rem) clamp(1rem, 4vw, 3.75rem);
     box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
@@ -231,7 +231,7 @@
     max-width: 80rem;
     /* -76px to -320px - we're calculating whatever clamp is and multiplying by -1
                to make the value negative since clamp doesn't work with negative values */
-    margin-top: calc(clamp(4.75rem, 20vw, 20rem)*-1);
+    margin-top: calc(clamp(4.75rem, 20vw, 20rem) * -1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -347,7 +347,7 @@
   #RPsbs-580 .cs-picture:before,
   #RPsbsr-580 .cs-picture:before {
     /* yellow box */
-    content: '';
+    content: "";
     width: 50%;
     height: 60%;
     background: var(--secondary);
@@ -355,8 +355,8 @@
     display: block;
     position: absolute;
     /* 16px - 28px, wrapped in calc function to multiple by negative 1 and get a negative clamp value */
-    bottom: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
-    left: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
+    bottom: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
+    left: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
   }
 }
 /*-- -------------------------- -->
@@ -383,7 +383,7 @@
   }
   #RPsbsr-580 .cs-picture:before {
     /* yellow box */
-    content: '';
+    content: "";
     width: 50%;
     height: 60%;
     background: var(--secondary);
@@ -392,8 +392,8 @@
     position: absolute;
     left: auto;
     /* 16px - 28px, wrapped in calc function to multiple by negative 1 and get a negative clamp value */
-    bottom: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
-    right: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
+    bottom: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
+    right: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
   }
 }
 /* Dark Mode */
@@ -452,10 +452,10 @@
     background-color: transparent;
     border: none;
     position: relative;
-    transition: color .3s;
+    transition: color 0.3s;
   }
   #gallery-453 .cs-button:before {
-    content: '';
+    content: "";
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
@@ -471,7 +471,7 @@
     left: -1.25rem;
     transform: translateY(-50%);
     /* transition to and from the active class styles on hover*/
-    transition: opacity .3s, left .3s;
+    transition: opacity 0.3s, left 0.3s;
   }
   #gallery-453 .cs-button:hover {
     color: var(--primary);
@@ -507,7 +507,8 @@
     left: 0;
     /* 16px - 20px */
     gap: clamp(1rem, 1vw, 1.25rem);
-    transition: transform .7s, opacity .3s, visibility .5s, top .3s, left .3s;
+    transition: transform 0.7s, opacity 0.3s, visibility 0.5s, top 0.3s,
+      left 0.3s;
     /* makes the transfrom scaling orgin the top left corner, dictates the direction by which the scale transforms animate towards */
     transform-origin: left top;
   }
@@ -541,32 +542,32 @@
     /* when .cs-hidden is removed from the .cs-gallery, reset these values and animate from their hidden styles */
     transform: translateY(0rem);
     opacity: 1;
-    transition: opacity .6s, transform .6s;
+    transition: opacity 0.6s, transform 0.6s;
   }
   #gallery-453 .cs-image:nth-of-type(1) {
     /* these delays stagger the reveal of each image so they all go one after the other and not all at once */
-    transition-delay: .15s;
+    transition-delay: 0.15s;
   }
   #gallery-453 .cs-image:nth-of-type(2) {
-    transition-delay: .3s;
+    transition-delay: 0.3s;
   }
   #gallery-453 .cs-image:nth-of-type(3) {
-    transition-delay: .45s;
+    transition-delay: 0.45s;
   }
   #gallery-453 .cs-image:nth-of-type(4) {
-    transition-delay: .6s;
+    transition-delay: 0.6s;
   }
   #gallery-453 .cs-image:nth-of-type(5) {
-    transition-delay: .75s;
+    transition-delay: 0.75s;
   }
   #gallery-453 .cs-image:nth-of-type(6) {
-    transition-delay: .9s;
+    transition-delay: 0.9s;
   }
   #gallery-453 .cs-image:nth-of-type(7) {
     transition-delay: 1.05s;
   }
   #gallery-453 .cs-image:nth-of-type(8) {
-    transition-delay: 1.20s;
+    transition-delay: 1.2s;
   }
   #gallery-453 .cs-image img {
     position: absolute;
@@ -626,7 +627,7 @@
 @media only screen and (min-width: 0rem) {
   #meet-team-221 {
     padding: var(--sectionPadding);
-    background: #F1F1F4;
+    background: #f1f1f4;
   }
   #meet-team-221 .cs-container {
     width: 100%;
@@ -667,7 +668,7 @@
     width: 100%;
     /* Makes image behave like a background image */
     object-fit: cover;
-    transition: transform .7s;
+    transition: transform 0.7s;
   }
   #meet-team-221 .cs-card-group {
     padding: 0;
@@ -717,7 +718,7 @@
     text-align: center;
     margin: 0;
     margin-bottom: 0.75rem;
-    color: #7D799C;
+    color: #7d799c;
   }
   #meet-team-221 .cs-social {
     display: flex;
@@ -745,7 +746,7 @@
   #meet-team-221 .cs-icon {
     width: 0.875rem;
     height: auto;
-    transition: transform .7s;
+    transition: transform 0.7s;
   }
 }
 /* Tablet - 768px */
@@ -776,7 +777,7 @@
     background-color: var(--medium);
   }
   body.dark-mode #meet-team-221 .cs-item-text {
-    opacity: .8;
+    opacity: 0.8;
   }
   body.dark-mode #meet-team-221 .cs-icon {
     /* turns icons white */
@@ -833,7 +834,7 @@
     padding: clamp(2rem, 7vw, 3rem) clamp(1rem, 4vw, 2rem);
     /* makes padding not affect height and width */
     box-sizing: border-box;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -873,7 +874,7 @@
     position: relative;
   }
   #reviews-727 .cs-name:before {
-    content: '';
+    content: "";
     width: 0.5rem;
     height: 1px;
     background: currentColor;
@@ -905,7 +906,7 @@
     color: var(--bodyTextColorWhite);
   }
   body.dark-mode #reviews-727 .cs-text {
-    opacity: .8;
+    opacity: 0.8;
   }
   body.dark-mode #reviews-727 .cs-item {
     background-color: var(--medium);
@@ -949,7 +950,7 @@
   #cta-51 .cs-text {
     /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
     margin-bottom: 1rem;
-    opacity: .8;
+    opacity: 0.8;
   }
   #cta-51 .cs-text:last-of-type {
     margin-bottom: 2rem;
@@ -965,13 +966,13 @@
   }
   #cta-51 .cs-picture:before {
     /* black color overlay */
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     height: 100%;
     width: 100%;
     background: #000;
-    opacity: .8;
+    opacity: 0.8;
     top: 0;
     left: 0;
     z-index: 1;
