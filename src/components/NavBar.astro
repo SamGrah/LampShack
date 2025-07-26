@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets"
+import Logo from "../assets/images/LampShackLogo.svg"
 ---
 
 <!-- ============================================ -->
@@ -72,8 +74,9 @@
   <div class="cs-container">
     <!--Nav Logo-->
     <a href="/index.html" class="cs-logo" aria-label="back to home">
-      <img src="https://res.cloudinary.com/ddkf3royq/image/upload/LampShackLogo_jfk2pv.svg" alt="logo" width="210px"
-        height="29px" aria-hidden="true" decoding="async">
+      <Image class = "cs-logo" src={Logo} alt="logo" width=210 decoding="async" loading="lazy" aria-hidden="true" />
+      <!-- <img src="https://res.cloudinary.com/ddkf3royq/image/upload/LampShackLogo_jfk2pv.svg" alt="logo" width="210px"
+        height="29px" aria-hidden="true" decoding="async"> -->
     </a>
     <!--Navigation List-->
     <nav class="cs-nav" role="navigation">

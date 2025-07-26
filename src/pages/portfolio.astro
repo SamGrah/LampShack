@@ -1,4 +1,15 @@
 ---
+import { Image } from "astro:assets"
+import ToolsImage from "../assets/images/tools.jpeg"
+import Example1Image from "../assets/images/example1.jpeg"
+import Example2Image from "../assets/images/example2.jpeg"
+import Example3Image from "../assets/images/example3.jpeg"
+import Example4Image from "../assets/images/example4.jpeg"
+import Example5Image from "../assets/images/example5.jpeg"
+import Example6Image from "../assets/images/example6.jpeg"
+import Example7Image from "../assets/images/example7.jpeg"
+import Example8Image from "../assets/images/example8.jpeg"
+import Example9Image from "../assets/images/example9.jpeg"
 import "../styles/css/portfolio.css";
 import BasePage from "../components/BasePage.astro";
 ---
@@ -15,15 +26,7 @@ import BasePage from "../components/BasePage.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)"
-          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562593/tools_llyyqr.jpg">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)"
-          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562593/tools_llyyqr.jpg">
-        <img loading="lazy" decoding="async"
-          src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562593/tools_llyyqr.jpg" alt="pills" width="1280"
-          height="568" aria-hidden="true">
+        <Image class = "cs-background" src={ToolsImage} alt="tools" width="1280" height="568" decoding="async" loading="lazy" aria-hidden="true" />
       </picture>
     </div>
 
@@ -41,93 +44,39 @@ import BasePage from "../components/BasePage.astro";
           <div class="cs-row cs-row-1">
             <!-- Row 1-->
             <picture class="cs-picture cs-picture-1">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562585/example1_z5vbd5.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562585/example1_z5vbd5.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562585/example1_z5vbd5.jpg"
-                alt="fixture with four hanging lanterns" width="420" height="567">
+              <Image class = "cs-picture cs-picture-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <picture class="cs-picture cs-picture-2">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562593/example2_ejeez0.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562593/example2_ejeez0.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562593/example2_ejeez0.jpg"
-                alt="two lamps with circular glass bodies" width="420" height="630">
+              <Image class = "cs-picture cs-picture-2" src={Example2Image} alt="two lamps with circular glass bodies" width="420" height="630" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <picture class="cs-picture cs-picture-3">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562589/example3_cuujmv.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562589/example3_cuujmv.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562589/example3_cuujmv.jpg"
-                alt="tripod base supporting shaded lamp" width="420" height="512">
+              <Image class = "cs-picture cs-picture-3" src={Example3Image} alt="tripod base supporting shaded lamp" width="420" height="512" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
           </div>
           <!-- Row 2 -->
           <div class="cs-row cs-row-2">
             <picture class="cs-picture cs-picture-1">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562587/example4_fuontw.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562587/example4_fuontw.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562587/example4_fuontw.jpg"
-                alt="ornate table top lamp with metalwork decorations" width="420" height="492">
+              <Image class = "cs-picture cs-picture-1" src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="420" height="492" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
-            <picture class="cs-picture cs-picture-2">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562589/example5_f8zjtk.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562589/example5_f8zjtk.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562589/example5_f8zjtk.jpg"
-                alt="antique handlamp with metalic housing" width="420" height="517">
+            <picture class="cs-picture cs-picture-2">              
+              <Image class = "cs-picture cs-picture-2" src={Example5Image} alt="antique handlamp with metalic housing" width="420" height="517" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
-            <picture class="cs-picture cs-picture-3">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example6_ugsmhr.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example6_ugsmhr.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example6_ugsmhr.jpg"
-                alt="six post hanging lamp with gold body" width="420" height="629">
+            <picture class="cs-picture cs-picture-3">              
+              <Image class = "cs-picture cs-picture-3" src={Example6Image} alt="six post hanging lamp with gold body" width="420" height="629" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
           </div>
           <!-- Row 3 -->
           <div class="cs-row cs-row-3">
             <picture class="cs-picture cs-picture-1">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562591/example7_qh5ynh.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562591/example7_qh5ynh.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562591/example7_qh5ynh.jpg"
-                alt="two tier chandelier with hanging crystals" width="420" height="625">
+              <Image class = "cs-picture cs-picture-1" src={Example7Image} alt="two tier chandelier with hanging crystals" width="420" height="625" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <picture class="cs-picture cs-picture-2">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example8_o5buef.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example8_o5buef.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example8_o5buef.jpg"
-                alt="candelabra style table top lamp" width="420" height="452">
+              <Image class = "cs-picture cs-picture-2" src={Example8Image} alt="candelabra style table top lamp" width="420" height="452" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <picture class="cs-picture cs-picture-3">
-              <source media="(max-width: 600px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562591/example9_jrzylc.jpg">
-              <source media="(min-width: 601px)"
-                srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562591/example9_jrzylc.jpg">
-              <img loading="lazy" decoding="async"
-                src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562591/example9_jrzylc.jpg"
-                alt="unfinished antique metalic and ivory lamp base with metalic legs" width="420" height="629">
+              <Image class = "cs-picture cs-picture-3" src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="420" height="629" decoding="async" loading="lazy" aria-hidden="true" />
             </picture>
             <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
           </div>

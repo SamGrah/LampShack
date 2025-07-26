@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets"
+import WorkbenchImage from "../assets/images/workbench.jpeg"
 import "../styles/css/contact.css";
 import BasePage from "../components/BasePage.astro";
 ---
@@ -15,15 +17,7 @@ import BasePage from "../components/BasePage.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)"
-          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)"
-          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
-        <img loading="lazy" decoding="async"
-          src="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg" alt="pills" width="1280"
-          height="568" aria-hidden="true">
+        <Image class = "cs-background" src={WorkbenchImage} alt="workbench" width="1280" height="568" decoding="async" loading="lazy" aria-hidden="true" />
       </picture>
     </div>
 

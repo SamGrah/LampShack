@@ -1,6 +1,9 @@
 ---
+import { Image } from "astro:assets";
+import Example6Image from "../assets/images/example6.jpeg"
 import "../styles/css/reviews.css";
 import BasePage from "../components/BasePage.astro";
+import ReviewQuote from "../components/ReviewQuote.astro";
 ---
 
 <BasePage>
@@ -15,15 +18,7 @@ import BasePage from "../components/BasePage.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <!--Mobile Image-->
-        <source media="(max-width: 600px)"
-          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example6_ugsmhr.jpg">
-        <!--Tablet and above Image-->
-        <source media="(min-width: 601px)"
-          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example6_ugsmhr.jpg">
-        <img loading="lazy" decoding="async"
-          src="https://res.cloudinary.com/ddkf3royq/image/upload/v1730562590/example6_ugsmhr.jpg" alt="pills"
-          width="1280" height="568" aria-hidden="true">
+        <Image class = "cs-background" src={Example6Image} alt="pills" width="1280" height="568" decoding="async" loading="lazy" aria-hidden="true" />
       </picture>
     </div>
 
@@ -41,114 +36,46 @@ import BasePage from "../components/BasePage.astro";
           </p>
         </div>
         <ul class="cs-card-group">
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Recommend Highly!</h3>
-            <p class="cs-item-text">
+          <ReviewQuote quoteTitle="Recommend Highly!" name="Nancy P">
               Tom did a great job on a lighted counter clock. There was a fluorescent fixture inside that had pretty
               much
               disintegrated. After searching for somone to help with the repair, I found the Lamp Shack. Presto! Chango!
               Magic!
               Totally renewed and now fully functional. The work was done quickly, and the price was right. Recommend
               highly!
-            </p>
-            <span class="cs-name">Nancy P</span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">TLC</h3>
+          </ReviewQuote>
+          <ReviewQuote quoteTitle="TLC" name="Mike G">
             I have a 50 year old lamp that has a lot of sentimental value. I was using it every night on a timer, but I
             was getting concerned about safety. The lamp needed some TLC.
 
             Tom, at the Lamp Shack, did a GREAT job restoring the lamp and the electric components to an as new
             condition. If you
             need a lamp repaired see Tom he will do a great job for you also.
-            <p class="cs-item-text">
-            </p>
-            <span class="cs-name">Mike G</span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Can't Say Enough Good Stuff</h3>
-            <p class="cs-item-text">
+          </ReviewQuote>
+          <ReviewQuote quoteTitle="Can't Say Enough Good Stuff" name="Stefan K">
               Tom at the Lamp Shack is amazing. Brought him a rusted, broken, sad lamp that had sentimental value and he
               turned it
               into a museum piece. He saw opportunity where others wouldn’t even look. An absolutely beautiful job. And
               he’s a great
               guy. I can’t say enough good stuff...
-            </p>
-            <span class="cs-name">Stefan K
-              <!-- <a class="cs-name-link" href="https://maps.app.goo.gl/TfXQ3oAUogvrnRxC8">Google Maps</a> -->
-            </span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Quick Fix with a Smile</h3>
-            <p class="cs-item-text">
+          </ReviewQuote>
+          <ReviewQuote quoteTitle="Quick Fix with a Smile" name="Teresa B">
               Our pandemic puppy chewed through our lamp power cord and Tom was able to offer a quick fix with a smile
               and a great
               price. We’ll be sure to check back in with the Lamp Shack the next time we need a repair.
-            </p>
-            <span class="cs-name">Teresa B</span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Will 100% Use Him Again</h3>
-            <p class="cs-item-text">
+          </ReviewQuote>
+          <ReviewQuote quoteTitle="Will 100% Use Him Again" name="Sherry R">
               Tom went above and beyond to repair a Vintage Christmas Tree Stand I had. He said it would be about two
               weeks, but did
               it in two days because he knew I would want to use it for the holidays. Can’t say enough good things about
               his work.
               Will 100% use him again.
-            </p>
-            <span class="cs-name">Sherry R</span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Professional and Knowledgeable</h3>
-            <p class="cs-item-text">
+          </ReviewQuote>
+          <ReviewQuote quoteTitle="Professional and Knowledgeable" name="Dee D">
               Tom did a great job fixing the switch on my artemide tolomeo lamp...he had to order the switch...his
               charge was very reasonable and he even helped clean the shade the movers had dirtied...he is professional
               and knowledgeable...I recommend him highly.
-            </p>
-            <span class="cs-name">Dee D</span>
-          </li>
-          <!--          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Loving the color!</h3>
-            <p class="cs-item-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores iste vitae, aliquam temporibus modi
-              libero dolorem rerum? Dolore soluta eligendi mollitia. Doloribus et exercitationem cupiditate?
-            </p>
-            <span class="cs-name">Daniel</span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Affordable</h3>
-            <p class="cs-item-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores iste vitae, aliquam temporibus modi
-              libero dolorem rerum? Dolore soluta eligendi mollitia. Doloribus et exercitationem cupiditate?
-            </p>
-            <span class="cs-name">Daniel</span>
-          </li>
-          <li class="cs-item">
-            <img class="cs-icon" src="https://csimg.nyc3.cdn.digitaloceanspaces.com/Reviews/yellow-quote.svg"
-              alt="quote icon" aria-hidden="true" width="40" height="38" loading="lazy" decoding="async">
-            <h3 class="cs-h3">Professional and the best!</h3>
-            <p class="cs-item-text">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores iste vitae, aliquam temporibus modi
-              libero dolorem rerum? Dolore soluta eligendi mollitia. Doloribus et exercitationem cupiditate?
-            </p>
-            <span class="cs-name">Daniel</span>
-          </li>-->
+          </ReviewQuote>
         </ul>
       </div>
     </section>

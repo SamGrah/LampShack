@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets"
+import WorkbenchImage from "../assets/images/workbench.jpeg"
 import "../styles/css/index.css";
 import BasePage from "../components/BasePage.astro";
 ---
@@ -11,9 +13,9 @@ import BasePage from "../components/BasePage.astro";
 
     <section id="hero-81">
       <div class="cs-container">
-        <h1 class="cs-title">Experienced Lamp Repair in Waterford, MI</h1>
-        <p class="cs-text">
-          Since 1973, I've crafted lamps from diverse materials, and have<br> yet
+        <h1 class="cs-title">Experienced Lamp Repair<br />in Waterford, MI</h1>
+        <p class="cs-text" style="width: 60%;">
+          Since 1973, I've crafted lamps from diverse materials, and have yet
           to be stumped.
           Experienced in stained leaded glass, I bring artistry to each project.
         </p>
@@ -22,14 +24,15 @@ import BasePage from "../components/BasePage.astro";
 
       <!-- Background Image -->
       <picture class="cs-background">
-        <source media="(max-width: 600px)"
+        <Image class = "cs-background" src={WorkbenchImage} alt="workbench" width="2250" height="1500" decoding="async" loading="lazy" aria-hidden="true" />
+        <!-- <source media="(max-width: 600px)"
           srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
         <source media="(min-width: 601px)"
           srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
         <img loading="lazy" decoding="async"
           src="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg" alt="workbench" width="2250"
-          height="1500" aria-hidden="true">
-      </picture>
+          height="1500" aria-hidden="true"> -->
+      </picture> 
     </section>
 
     <!-- ============================================ -->
