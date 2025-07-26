@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Lamp Shack Site 
 
 ```sh
 npm create astro@latest -- --template minimal
