@@ -1,0 +1,77 @@
+---
+import "../styles/css/index.css";
+import BasePage from "../components/BasePage.astro";
+---
+
+<BasePage>
+  <main id="main">
+    <!-- ============================================ -->
+    <!--                    Hero                      -->
+    <!-- ============================================ -->
+
+    <section id="hero-81">
+      <div class="cs-container">
+        <h1 class="cs-title">Experienced Lamp Repair in Waterford, MI</h1>
+        <p class="cs-text">
+          Since 1973, I've crafted lamps from diverse materials, and have<br> yet
+          to be stumped.
+          Experienced in stained leaded glass, I bring artistry to each project.
+        </p>
+        <a href="/contact.html" class="cs-button-solid">Request Appointment</a>
+      </div>
+
+      <!-- Background Image -->
+      <picture class="cs-background">
+        <source media="(max-width: 600px)"
+          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
+        <source media="(min-width: 601px)"
+          srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
+        <img loading="lazy" decoding="async"
+          src="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg" alt="workbench" width="2250"
+          height="1500" aria-hidden="true">
+      </picture>
+    </section>
+
+    <!-- ============================================ -->
+    <!--                   Services                   -->
+    <!-- ============================================ -->
+
+    <section id="h-services-81">
+      <ul class="cs-card-group">
+        <li class="cs-item">
+          <picture class="cs-icon">
+            <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/toolbox.svg"
+              alt="appliance" width="52" height="52" aria-hidden="true">
+          </picture>
+          <h2 class="cs-title">Lamp Repair</h2>
+          <p class="cs-text">
+            Restoration, maintenance, and enhancement of various types of lamps, ranging from antique and vintage pieces
+            to modern fixtures
+          </p>
+        </li>
+        <li class="cs-item">
+          <picture class="cs-icon">
+            <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/buildings.svg"
+              alt="appliance" width="52" height="52" aria-hidden="true">
+          </picture>
+          <h2 class="cs-title">Electrical & Fixtures</h2>
+          <p class="cs-text">
+            Diagnosis and repairing electrical issues within lamps, including faulty wiring, sockets, switches, and
+            plugs
+          </p>
+        </li>
+        <li class="cs-item">
+          <picture class="cs-icon">
+            <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/gear.svg"
+              alt="appliance" width="52" height="52" aria-hidden="true">
+          </picture>
+          <h2 class="cs-title">Custom Design</h2>
+          <p class="cs-text">
+            Creation of unique and personalized lighting fixtures tailored to your specific preferences, requirements,
+            and aesthetics
+          </p>
+        </li>
+      </ul>
+    </section>
+  </main>
+</BasePage>
