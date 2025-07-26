@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets"
+import ToolsImage from "../assets/images/tools.jpeg"
+import Example1Image from "../assets/images/example1.jpeg"
+import Example2Image from "../assets/images/example2.jpeg"
+import Example3Image from "../assets/images/example3.jpeg"
+import Example4Image from "../assets/images/example4.jpeg"
+import Example5Image from "../assets/images/example5.jpeg"
+import Example6Image from "../assets/images/example6.jpeg"
+import Example7Image from "../assets/images/example7.jpeg"
+import Example8Image from "../assets/images/example8.jpeg"
+import Example9Image from "../assets/images/example9.jpeg"
+import "../styles/css/portfolio.css";
+import BasePage from "../components/BasePage.astro";
+---
+
+<BasePage>
+  <main id="main">
+    <!-- ============================================ -->
+    <!--                   Banner                     -->
+    <!-- ============================================ -->
+
+    <div id="banner-712">
+      <div class="cs-container">
+        <span class="cs-int-title">Portfolio</span>
+      </div>
+      <!--Background Image-->
+      <picture class="cs-background">
+        <Image class = "cs-background" src={ToolsImage} alt="tools" width="1280" height="568" decoding="async" loading="lazy" aria-hidden="true" />
+      </picture>
+    </div>
+
+    <!-- ============================================ -->
+    <!--                   Gallery                    -->
+    <!-- ============================================ -->
+
+    <section id="gallery-48">
+      <div class="cs-container">
+        <div class="cs-content">
+          <span class="cs-topper">Our Portfolio</span>
+          <h2 class="cs-title">Finished Work</h2>
+        </div>
+        <div class="cs-image-group">
+          <div class="cs-row cs-row-1">
+            <!-- Row 1-->
+            <picture class="cs-picture cs-picture-1">
+              <Image class = "cs-picture cs-picture-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <picture class="cs-picture cs-picture-2">
+              <Image class = "cs-picture cs-picture-2" src={Example2Image} alt="two lamps with circular glass bodies" width="420" height="630" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <picture class="cs-picture cs-picture-3">
+              <Image class = "cs-picture cs-picture-3" src={Example3Image} alt="tripod base supporting shaded lamp" width="420" height="512" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+          </div>
+          <!-- Row 2 -->
+          <div class="cs-row cs-row-2">
+            <picture class="cs-picture cs-picture-1">
+              <Image class = "cs-picture cs-picture-1" src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="420" height="492" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <picture class="cs-picture cs-picture-2">              
+              <Image class = "cs-picture cs-picture-2" src={Example5Image} alt="antique handlamp with metalic housing" width="420" height="517" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <picture class="cs-picture cs-picture-3">              
+              <Image class = "cs-picture cs-picture-3" src={Example6Image} alt="six post hanging lamp with gold body" width="420" height="629" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+          </div>
+          <!-- Row 3 -->
+          <div class="cs-row cs-row-3">
+            <picture class="cs-picture cs-picture-1">
+              <Image class = "cs-picture cs-picture-1" src={Example7Image} alt="two tier chandelier with hanging crystals" width="420" height="625" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <picture class="cs-picture cs-picture-2">
+              <Image class = "cs-picture cs-picture-2" src={Example8Image} alt="candelabra style table top lamp" width="420" height="452" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <picture class="cs-picture cs-picture-3">
+              <Image class = "cs-picture cs-picture-3" src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="420" height="629" decoding="async" loading="lazy" aria-hidden="true" />
+            </picture>
+            <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</BasePage>
