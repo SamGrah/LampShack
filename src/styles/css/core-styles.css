@@ -238,7 +238,7 @@
     cursor: pointer;
   }
   .cs-li-contact {
-    display: none;
+    width: 0;
   }
 }
 /*-- -------------------------- -->
