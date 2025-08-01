@@ -44,11 +44,23 @@
     padding: clamp(2rem, 7vw, 3rem) clamp(1rem, 4vw, 2rem);
     /* makes padding not affect height and width */
     box-sizing: border-box;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
+
+  #reviews-607 .cs-item a {
+    padding-left: 16px;
+    text-decoration: none;
+    color: var(--primary);
+  }
+
+  #reviews-607 .cs-text a {
+    text-decoration: none;
+    color: var(--primary);
+  }
+
   #reviews-607 .cs-icon {
     /* 30px - 40px */
     width: clamp(1.875rem, 4vw, 2.5rem);
@@ -85,7 +97,7 @@
     position: relative;
   }
   #reviews-607 .cs-name:before {
-    content: '';
+    content: "";
     width: 0.5rem;
     height: 1px;
     background: currentColor;
@@ -133,7 +145,7 @@
   }
   body.dark-mode #reviews-607 .cs-text,
   body.dark-mode #reviews-607 .cs-item-text {
-    opacity: .8;
+    opacity: 0.8;
   }
   body.dark-mode #reviews-607 .cs-item {
     background-color: rgba(0, 0, 0, 0.2);
@@ -177,7 +189,7 @@
   #cta-51 .cs-text {
     /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
     margin-bottom: 1rem;
-    opacity: .8;
+    opacity: 0.8;
   }
   #cta-51 .cs-text:last-of-type {
     margin-bottom: 2rem;
@@ -193,13 +205,13 @@
   }
   #cta-51 .cs-picture:before {
     /* black color overlay */
-    content: '';
+    content: "";
     position: absolute;
     display: block;
     height: 100%;
     width: 100%;
     background: #000;
-    opacity: .8;
+    opacity: 0.8;
     top: 0;
     left: 0;
     z-index: 1;

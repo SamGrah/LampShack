@@ -74,6 +74,7 @@
     gap: clamp(0.5rem, 2vw, 1.25rem);
   }
   #gallery-48 .cs-picture {
+    border: 1px solid grey;
     width: 100%;
     position: relative;
     display: block;

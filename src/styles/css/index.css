@@ -15,6 +15,12 @@
     /* Prevents white rectangle pseudos from overlapping the sections below */
     overflow: hidden;
   }
+
+  #hero-81 .cs-text {
+    text-wrap: balance;
+    width: 60%;
+  }
+
   #hero-81:before {
     /* Left side of the triangle */
     content: "";
@@ -91,6 +97,7 @@
     font-weight: 700;
     line-height: 1.2em;
     text-align: center;
+    text-wrap: balance;
     max-width: 51.8125rem;
     /* 16px - 24px */
     margin: 0 auto clamp(1rem, 4vw, 1.5rem);

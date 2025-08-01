@@ -2,14 +2,15 @@
 import { Image } from "astro:assets"
 import YellowQuoteImage from "../assets/images/yellow-quote.svg"
 
-const { quoteTitle, name } = Astro.props;
+const { quoteTitle, name, reviewLinkText, reviewLink } = Astro.props;
 ---
 
 <li class="cs-item">
-<Image class = "cs-icon" src={YellowQuoteImage} alt="quote icon" width="40" height="38" decoding="async" loading="lazy" aria-hidden="true" />
-<h3 class="cs-h3">{ quoteTitle }</h3>
-  <slot />
-<p class="cs-item-text">
-</p>
-<span class="cs-name">{ name }</span>
+  <Image class = "cs-icon" src={YellowQuoteImage} alt="quote icon" width="40" height="38" decoding="async" loading="lazy" aria-hidden="true" />
+  <h3 class="cs-h3">{ quoteTitle }</h3>
+  <p class="cs-item-text">
+    <slot />
+  </p>
+  <span class="cs-name">{ name }</span>
+  <a href={reviewLink}>{reviewLinkText}</a>
 </li>

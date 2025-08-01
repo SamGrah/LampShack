@@ -7,10 +7,16 @@ import Logo from "../assets/images/LampShackLogo.svg"
 <!--                 Navigation                   -->
 <!-- ============================================ -->
 <script>
-// add classes for mobile navigation toggling
-    var CSbody = document.querySelector("body");
-    const CSnavbarMenu = document.querySelector("#cs-navigation");
-    const CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+  // add classes for mobile navigation toggling
+
+  // The astro ClientRouter will call this function when the page loads
+  // after transition events have been executed 
+  document.addEventListener("astro:page-load", () => {
+    let CSbody = document.querySelector("body");
+    let CSnavbarMenu = document.querySelector("#cs-navigation");
+    let CShamburgerMenu = document.querySelector("#cs-navigation .cs-toggle");
+
+    // Reapply event listeners to the updated or new elements
 
     CShamburgerMenu?.addEventListener('click', function() {
         CShamburgerMenu?.classList.toggle("cs-active");
@@ -19,56 +25,57 @@ import Logo from "../assets/images/LampShackLogo.svg"
         // run the function to check the aria-expanded value
         ariaExpanded();
     });
+  });
 
-    // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not 
-    function ariaExpanded() {
-        const csUL = document.querySelector('#cs-expanded');
-        const csExpanded = csUL?.getAttribute('aria-expanded');
+  // checks the value of aria expanded on the cs-ul and changes it accordingly whether it is expanded or not 
+  function ariaExpanded() {
+      const csUL = document.querySelector('#cs-expanded');
+      const csExpanded = csUL?.getAttribute('aria-expanded');
 
-        if (csExpanded === 'false') {
-            csUL?.setAttribute('aria-expanded', 'true');
-        } else {
-            csUL?.setAttribute('aria-expanded', 'false');
-        }
+      if (csExpanded === 'false') {
+          csUL?.setAttribute('aria-expanded', 'true');
+      } else {
+          csUL?.setAttribute('aria-expanded', 'false');
+      }
+  }
+
+  // mobile nav toggle code
+  const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
+  for (const item of dropDowns) {
+      const onClick = () => {
+      item.classList.toggle('cs-active')
     }
+    item.addEventListener('click', onClick)
+  }
+                          
 
-    // mobile nav toggle code
-    const dropDowns = Array.from(document.querySelectorAll('#cs-navigation .cs-dropdown'));
-        for (const item of dropDowns) {
-            const onClick = () => {
-            item.classList.toggle('cs-active')
-        }
-        item.addEventListener('click', onClick)
-        }
-                                
+  // const $btn = window['dark-mode-toggle'] 
+  const $btn = document.getElementById('dark-mode-toggle')
 
-        // const $btn = window['dark-mode-toggle'] 
-        const $btn = document.getElementById('dark-mode-toggle')
+  const bodyClassList = document.body.classList
+  const storageKey = 'isDarkModeEnabled'
+  
+  let isEnabled = Boolean(localStorage.getItem(storageKey))
+  
+  const update = () => {
+    bodyClassList.toggle('dark-mode', isEnabled)
+  }
+  
+  const save = () => {
+    if (isEnabled) localStorage.setItem(storageKey, 'true')
+    else localStorage.removeItem(storageKey)
+  }
+  
+  const toggle = () => {
+    isEnabled = !isEnabled
 
-        const bodyClassList = document.body.classList
-        const storageKey = 'isDarkModeEnabled'
-        
-        let isEnabled = Boolean(localStorage.getItem(storageKey))
-        
-        const update = () => {
-          bodyClassList.toggle('dark-mode', isEnabled)
-        }
-        
-        const save = () => {
-            if (isEnabled) localStorage.setItem(storageKey, 'true')
-            else localStorage.removeItem(storageKey)
-        }
-        
-        const toggle = () => {
-            isEnabled = !isEnabled
-        
-            update()
-            save()
-        }
-        
-        update()
-        
-        $btn?.addEventListener('click', toggle)
+    update()
+    save()
+  }
+  
+  update()
+  
+  $btn?.addEventListener('click', toggle)
 </script>
 <header id="cs-navigation">
   <div class="cs-container">
@@ -106,7 +113,7 @@ import Logo from "../assets/images/LampShackLogo.svg"
               Reviews
             </a>
           </li>
-          <li class="cs-li">
+          <li class="cs-li cs-li-contact">
             <a href="/contact.html" class="cs-li-link">
               Contact
             </a>

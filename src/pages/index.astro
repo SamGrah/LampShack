@@ -1,6 +1,9 @@
 ---
 import { Image } from "astro:assets"
 import WorkbenchImage from "../assets/images/workbench.jpeg"
+import Gear from "../assets/images/gear.svg"
+import Toolbox from "../assets/images/toolbox.svg"
+import Buildings from "../assets/images/buildings.svg"
 import "../styles/css/index.css";
 import BasePage from "../components/BasePage.astro";
 ---
@@ -13,18 +16,16 @@ import BasePage from "../components/BasePage.astro";
 
     <section id="hero-81">
       <div class="cs-container">
-        <h1 class="cs-title">Experienced Lamp Repair<br />in Waterford, MI</h1>
-        <p class="cs-text" style="width: 60%;">
-          Since 1973, I've crafted lamps from diverse materials, and have yet
-          to be stumped.
-          Experienced in stained leaded glass, I bring artistry to each project.
+        <h1 class="cs-title">Experienced Lamp Repair in Waterford, MI</h1>
+        <p class="cs-text">
+          Since 1973, I've crafted lamps from diverse materials, and have yet to be stumped. Experienced in stained leaded glass, I bring artistry to each project.
         </p>
         <a href="/contact.html" class="cs-button-solid">Request Appointment</a>
       </div>
 
       <!-- Background Image -->
       <picture class="cs-background">
-        <Image class = "cs-background" src={WorkbenchImage} alt="workbench" width="2250" height="1500" decoding="async" loading="lazy" aria-hidden="true" />
+        <Image class = "cs-background" src={WorkbenchImage} alt="workbench" width="2250" height="1500" decoding="async" loading="eager" aria-hidden="true" />
         <!-- <source media="(max-width: 600px)"
           srcset="https://res.cloudinary.com/ddkf3royq/image/upload/workbench_nqn8e7.jpg">
         <source media="(min-width: 601px)"
@@ -43,7 +44,7 @@ import BasePage from "../components/BasePage.astro";
       <ul class="cs-card-group">
         <li class="cs-item">
           <picture class="cs-icon">
-            <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/toolbox.svg"
+            <Image loading="lazy" decoding="async" src={Toolbox} 
               alt="appliance" width="52" height="52" aria-hidden="true">
           </picture>
           <h2 class="cs-title">Lamp Repair</h2>
@@ -54,7 +55,7 @@ import BasePage from "../components/BasePage.astro";
         </li>
         <li class="cs-item">
           <picture class="cs-icon">
-            <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/buildings.svg"
+            <Image loading="lazy" decoding="async" src={Buildings}
               alt="appliance" width="52" height="52" aria-hidden="true">
           </picture>
           <h2 class="cs-title">Electrical & Fixtures</h2>
@@ -65,7 +66,7 @@ import BasePage from "../components/BasePage.astro";
         </li>
         <li class="cs-item">
           <picture class="cs-icon">
-            <img loading="lazy" decoding="async" src="https://csimg.nyc3.digitaloceanspaces.com/Hero/gear.svg"
+            <Image loading="lazy" decoding="async" src={Gear}
               alt="appliance" width="52" height="52" aria-hidden="true">
           </picture>
           <h2 class="cs-title">Custom Design</h2>
