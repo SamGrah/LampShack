@@ -18,7 +18,7 @@ import ReviewQuote from "../components/ReviewQuote.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <Image class = "cs-background" src={ChandelierImage} alt="pills" width="1280" height="568" decoding="async" loading="lazy" aria-hidden="true" />
+        <Image class = "cs-background" src={ChandelierImage} alt="pills" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
       </picture>
     </div>
 
@@ -31,12 +31,13 @@ import ReviewQuote from "../components/ReviewQuote.astro";
         <div class="cs-content">
           <span class="cs-topper"></span>
           <h2 class="cs-title">Satisfied Customers</h2>
-          <p class="cs-text">
+          <p class="cs-text" style="text-wrap: balance;">
             These are a small sample of the reviews I've received over the years
+            on <a href="https://www.google.com/search?sca_esv=a4444ddbaea57919&sxsrf=AE3TifNcroanncr5If0vc4k0qrFKL_C1JA:1754017657422&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E2LUA83nJsT4fEzSVdyu2rHpho4C13eWg-s5jeR71xLNqQ1CRVT0IPSoYf0rLxRAXJb0DudAQnP1wD-oa6e4GSGzPaskxMF9j0HTzHwtSiedYIE9YA%3D%3D&q=Lamp+Shack+%28Call+1st%29+Reviews&sa=X&ved=2ahUKEwjC6Zn70OiOAxXuvokEHSaNMaIQ0bkNegQINBAE&biw=1440&bih=785&dpr=2">Google Reviews</a> and <a href="https://www.yellowpages.com/waterford-mi/mip/lamp-shack-tom-parke-8810706">Yellow Pages</a>.
           </p>
         </div>
         <ul class="cs-card-group">
-          <ReviewQuote quoteTitle="Recommend Highly!" name="Nancy P">
+          <ReviewQuote quoteTitle="Recommend Highly!" name="Nancy P" reviewLinkText="Google Reviews" reviewLink="https://share.google/Irq1m7YrghwLAiF1S">
               Tom did a great job on a lighted counter clock. There was a fluorescent fixture inside that had pretty
               much
               disintegrated. After searching for somone to help with the repair, I found the Lamp Shack. Presto! Chango!
@@ -44,7 +45,7 @@ import ReviewQuote from "../components/ReviewQuote.astro";
               Totally renewed and now fully functional. The work was done quickly, and the price was right. Recommend
               highly!
           </ReviewQuote>
-          <ReviewQuote quoteTitle="TLC" name="Mike G">
+          <ReviewQuote quoteTitle="TLC" name="Mike G" reviewLinkText="Google Reviews" reviewLink="https://share.google/D6qTinBxsHbg0B22H">
             I have a 50 year old lamp that has a lot of sentimental value. I was using it every night on a timer, but I
             was getting concerned about safety. The lamp needed some TLC.
 
@@ -52,26 +53,26 @@ import ReviewQuote from "../components/ReviewQuote.astro";
             condition. If you
             need a lamp repaired see Tom he will do a great job for you also.
           </ReviewQuote>
-          <ReviewQuote quoteTitle="Can't Say Enough Good Stuff" name="Stefan K">
+          <ReviewQuote quoteTitle="Can't Say Enough Good Stuff" name="Stefan K" reviewLinkText="Google Reviews" reviewLink="https://maps.app.goo.gl/5ZkPHyNB9znjtyKv9">
               Tom at the Lamp Shack is amazing. Brought him a rusted, broken, sad lamp that had sentimental value and he
               turned it
               into a museum piece. He saw opportunity where others wouldn’t even look. An absolutely beautiful job. And
               he’s a great
               guy. I can’t say enough good stuff...
           </ReviewQuote>
-          <ReviewQuote quoteTitle="Quick Fix with a Smile" name="Teresa B">
+          <ReviewQuote quoteTitle="Quick Fix with a Smile" name="Teresa B" reviewLinkText="Google Reviews" reviewLink="https://share.google/Sg8MEuucG9OM2zjju">
               Our pandemic puppy chewed through our lamp power cord and Tom was able to offer a quick fix with a smile
               and a great
               price. We’ll be sure to check back in with the Lamp Shack the next time we need a repair.
           </ReviewQuote>
-          <ReviewQuote quoteTitle="Will 100% Use Him Again" name="Sherry R">
+          <ReviewQuote quoteTitle="Will 100% Use Him Again" name="Sherry R" reviewLinkText="Google Reviews" reviewLink="https://share.google/pzKsxacZIyUxIGxoh">
               Tom went above and beyond to repair a Vintage Christmas Tree Stand I had. He said it would be about two
               weeks, but did
               it in two days because he knew I would want to use it for the holidays. Can’t say enough good things about
               his work.
               Will 100% use him again.
           </ReviewQuote>
-          <ReviewQuote quoteTitle="Professional and Knowledgeable" name="Dee D">
+          <ReviewQuote quoteTitle="Professional and Knowledgeable" name="Dee D" reviewLinkText="Google Reviews" reviewLink="https://share.google/B4ZGlPRXjbbwz0Soi">
               Tom did a great job fixing the switch on my artemide tolomeo lamp...he had to order the switch...his
               charge was very reasonable and he even helped clean the shade the movers had dirtied...he is professional
               and knowledgeable...I recommend him highly.

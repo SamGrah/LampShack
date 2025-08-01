@@ -1,5 +1,5 @@
 ---
-// import generic css and less styles 
+import { ClientRouter, fade } from "astro:transitions";
 import "../styles/css/core-styles.css";
 import "../styles/css/dark.css";
 
@@ -11,6 +11,7 @@ import Footer from "../components/Footer.astro";
 <html lang="en">
 
   <head>
+    <ClientRouter />
     <!-- Google tag (gtag.js) -->
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-EB6NHTX4M3"></script>
     <script is:inline>
@@ -43,31 +44,31 @@ import Footer from "../components/Footer.astro";
       content="Experienced lamp and lighting repair service offering personalized and meticulous restoration. Open M-F 10-4pm." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.thelampshack.com/" />
-    <meta property="og:image" content="https://res.cloudinary.com/ddkf3royq/image/upload/LampShackLogo_jfk2pv.svg" />
+    <meta property="og:image" content="/assets/images/LampShackLogo.svg" />
     <meta property="og:image:secure_url"
-      content="https://res.cloudinary.com/ddkf3royq/image/upload/LampShackLogo_jfk2pv.svg" />
+      content="/assets/images/LampShackLogo.svg" />
 
     <!--Favicons-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
+    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png?v1">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
     <link rel="manifest" href="/assets/favicons/site.webmanifest">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff"> -->
 
     <!-- Preload -->
-    <link rel="preload" as="image" href="assets/images/logo-light.png">
-    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-regular.woff2" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/roboto-v29-latin-700.woff2" crossorigin>
+    <!-- <link rel="preload" as="image" href="assets/images/logo-light.png">
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v29-latin-regular.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v29-latin-700.woff2" crossorigin>
 
     <link rel="stylesheet" href="/css/core-styles.css">
     <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/dark.css"> -->
 
     <title>Lamp Shack | Waterford, MI</title>
   </head>
 
-  <body>
+  <body class="cs-open" transition:animate="fade">
     <!--Screen reader skip main nav-->
     <a class="skip" aria-label="skip to main content" href="#main">Click To Skip To Main Content</a>
     <NavBar />
