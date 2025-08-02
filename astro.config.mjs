@@ -8,5 +8,8 @@ export default defineConfig({
   adapter: netlify(),
   prefetch: {
     prefetchAll: true
-  }
+  },
+  experimental: {
+    clientPrerender: true,
+  },
 });
