@@ -1,0 +1,9 @@
+# robots.txt for thelampshack.com
+# Reference: https://developers.google.com/search/docs/crawling-indexing/robots/robots_txt
+
+# Allow all crawlers access to all content
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.thelampshack.com/sitemap-index.xml

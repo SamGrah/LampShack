@@ -44,42 +44,159 @@ import BasePage from "../components/BasePage.astro";
         <div class="cs-image-group">
           <div class="cs-row cs-row-1">
             <!-- Row 1-->
-            <picture class="cs-picture cs-picture-1">
-              <Image id="example-image-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="eager" aria-hidden="true" />
-              <!-- <Image class = "cs-picture cs-picture-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="eager" aria-hidden="true" /> -->
-            </picture>
-            <picture class="cs-picture cs-picture-2">
-              <Image id="example-image-2" class = "cs-picture cs-picture-2" src={Example2Image} alt="two lamps with circular glass bodies" width="420" height="630" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
-            <picture class="cs-picture cs-picture-3">
-              <Image id="example-image-3" class = "cs-picture cs-picture-3" src={Example3Image} alt="tripod base supporting shaded lamp" width="420" height="512" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
+            <div class="cs-lightbox-item" style="--lb-name: lb-1;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-1"
+                aria-label="Expand image: fixture with four hanging lanterns"
+              />
+              <label class="cs-picture cs-picture-1 cs-lightbox-thumb" for="lb-1">
+                <Image id="example-image-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="eager" aria-hidden="true" />
+                <!-- <Image class = "cs-picture cs-picture-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="eager" aria-hidden="true" /> -->
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-1" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example1Image} alt="fixture with four hanging lanterns" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
+            <div class="cs-lightbox-item" style="--lb-name: lb-2;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-2"
+                aria-label="Expand image: two lamps with circular glass bodies"
+              />
+              <label class="cs-picture cs-picture-2 cs-lightbox-thumb" for="lb-2">
+                <Image id="example-image-2" class = "cs-picture cs-picture-2" src={Example2Image} alt="two lamps with circular glass bodies" width="420" height="630" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-2" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example2Image} alt="two lamps with circular glass bodies" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
+            <div class="cs-lightbox-item" style="--lb-name: lb-3;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-3"
+                aria-label="Expand image: tripod base supporting shaded lamp"
+              />
+              <label class="cs-picture cs-picture-3 cs-lightbox-thumb" for="lb-3">
+                <Image id="example-image-3" class = "cs-picture cs-picture-3" src={Example3Image} alt="tripod base supporting shaded lamp" width="420" height="512" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-3" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example3Image} alt="tripod base supporting shaded lamp" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
             <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
           </div>
           <!-- Row 2 -->
           <div class="cs-row cs-row-2">
-            <picture class="cs-picture cs-picture-1">
-              <Image id="example-image-4" class = "cs-picture cs-picture-1" src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="420" height="492" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
-            <picture class="cs-picture cs-picture-2">                 
-              <Image id="example-image-5" class = "cs-picture cs-picture-2" src={Example5Image} alt="antique handlamp with metalic housing" width="420" height="517" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
-            <picture class="cs-picture cs-picture-3">              
-              <Image id="example-image-6" class = "cs-picture cs-picture-3" src={Example6Image} alt="six post hanging lamp with gold body" width="420" height="629" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
+            <div class="cs-lightbox-item" style="--lb-name: lb-4;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-4"
+                aria-label="Expand image: ornate table top lamp with metalwork decorations"
+              />
+              <label class="cs-picture cs-picture-1 cs-lightbox-thumb" for="lb-4">
+                <Image id="example-image-4" class = "cs-picture cs-picture-1" src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="420" height="492" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-4" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
+            <div class="cs-lightbox-item" style="--lb-name: lb-5;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-5"
+                aria-label="Expand image: antique handlamp with metalic housing"
+              />
+              <label class="cs-picture cs-picture-2 cs-lightbox-thumb" for="lb-5">
+                <Image id="example-image-5" class = "cs-picture cs-picture-2" src={Example5Image} alt="antique handlamp with metalic housing" width="420" height="517" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-5" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example5Image} alt="antique handlamp with metalic housing" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
+            <div class="cs-lightbox-item" style="--lb-name: lb-6;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-6"
+                aria-label="Expand image: six post hanging lamp with gold body"
+              />
+              <label class="cs-picture cs-picture-3 cs-lightbox-thumb" for="lb-6">
+                <Image id="example-image-6" class = "cs-picture cs-picture-3" src={Example6Image} alt="six post hanging lamp with gold body" width="420" height="629" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-6" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example6Image} alt="six post hanging lamp with gold body" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
             <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
           </div>
           <!-- Row 3 -->
           <div class="cs-row cs-row-3">
-            <picture class="cs-picture cs-picture-1">
-              <Image id="example-image-7" class = "cs-picture cs-picture-1" src={Example7Image} alt="two tier chandelier with hanging crystals" width="420" height="625" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
-            <picture class="cs-picture cs-picture-2">
-              <Image id="example-image-8" class = "cs-picture cs-picture-2" src={Example8Image} alt="candelabra style table top lamp" width="420" height="452" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
-            <picture class="cs-picture cs-picture-3">              
-              <Image id="example-image-9" class = "cs-picture cs-picture-3" src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="420" height="629" decoding="async" loading="eager" aria-hidden="true" />
-            </picture>
+            <div class="cs-lightbox-item" style="--lb-name: lb-7;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-7"
+                aria-label="Expand image: two tier chandelier with hanging crystals"
+              />
+              <label class="cs-picture cs-picture-1 cs-lightbox-thumb" for="lb-7">
+                <Image id="example-image-7" class = "cs-picture cs-picture-1" src={Example7Image} alt="two tier chandelier with hanging crystals" width="420" height="625" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-7" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example7Image} alt="two tier chandelier with hanging crystals" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
+            <div class="cs-lightbox-item" style="--lb-name: lb-8;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-8"
+                aria-label="Expand image: candelabra style table top lamp"
+              />
+              <label class="cs-picture cs-picture-2 cs-lightbox-thumb" for="lb-8">
+                <Image id="example-image-8" class = "cs-picture cs-picture-2" src={Example8Image} alt="candelabra style table top lamp" width="420" height="452" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-8" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example8Image} alt="candelabra style table top lamp" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
+            <div class="cs-lightbox-item" style="--lb-name: lb-9;">
+              <input
+                class="cs-lightbox-toggle"
+                type="checkbox"
+                id="lb-9"
+                aria-label="Expand image: unfinished antique metalic and ivory lamp base with metalic legs"
+              />
+              <label class="cs-picture cs-picture-3 cs-lightbox-thumb" for="lb-9">
+                <Image id="example-image-9" class = "cs-picture cs-picture-3" src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="420" height="629" decoding="async" loading="eager" aria-hidden="true" />
+              </label>
+              <label class="cs-lightbox-overlay" for="lb-9" aria-hidden="true">
+                <div class="cs-lightbox-dialog">
+                  <Image src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="1280" decoding="async" loading="eager" />
+                </div>
+              </label>
+            </div>
             <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
           </div>
         </div>
@@ -99,4 +216,83 @@ import BasePage from "../components/BasePage.astro";
   <Modal picId="example-image-7" img={Example7Image} altText="two tier chandelier with hanging crystals" />
   <Modal picId="example-image-8" img={Example8Image} altText="candelabra style table top lamp" />
   <Modal picId="example-image-9" img={Example9Image} altText="unfinished antique metalic and ivory lamp base with metalic legs" /> -->
+  <script type="module">
+    const lightboxThumbs = document.querySelectorAll("#gallery-48 .cs-lightbox-thumb");
+
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+
+    const FADE_DURATION = 100; // ms - matches CSS transition
+
+    const toggleLightbox = (label) => {
+      const targetId = label.htmlFor;
+      if (!targetId) return;
+      const checkbox = document.getElementById(targetId);
+      if (!(checkbox instanceof HTMLInputElement)) return;
+
+      const item = label.closest(".cs-lightbox-item");
+      const nextChecked = !checkbox.checked;
+      const isOpening = nextChecked;
+
+      const runTransition = () => {
+        if (document.startViewTransition && !prefersReducedMotion.matches) {
+          if (item) {
+            item.classList.add("is-active");
+          }
+          const transition = document.startViewTransition(() => {
+            document.documentElement.classList.add("lb-vt");
+            checkbox.checked = nextChecked;
+          });
+
+          transition.finished.finally(() => {
+            document.documentElement.classList.remove("lb-vt");
+            document.documentElement.classList.remove("lb-fade-out");
+            if (item) {
+              item.classList.remove("is-active");
+            }
+          });
+        } else {
+          checkbox.checked = nextChecked;
+          document.documentElement.classList.remove("lb-fade-out");
+        }
+      };
+
+      if (isOpening) {
+        // Fade out elements first, then run transition
+        document.documentElement.classList.add("lb-fade-out");
+        if (item) {
+          item.classList.add("is-active");
+        }
+        setTimeout(runTransition, FADE_DURATION);
+      } else {
+        runTransition();
+      }
+    };
+
+    // Thumbnails: click to open
+    lightboxThumbs.forEach((label) => {
+      label.addEventListener("click", (event) => {
+        event.preventDefault();
+        toggleLightbox(label);
+      });
+    });
+
+    // Close lightbox on any click/tap when open
+    document.addEventListener("click", (event) => {
+      // Find any open lightbox
+      const checkedToggle = document.querySelector("#gallery-48 .cs-lightbox-toggle:checked");
+      if (!checkedToggle) return;
+
+      // Don't close if clicking a thumbnail to open
+      if (event.target.closest(".cs-lightbox-thumb")) return;
+
+      // Close the open lightbox
+      const overlay = checkedToggle.closest(".cs-lightbox-item")?.querySelector(".cs-lightbox-overlay");
+      if (overlay) {
+        event.preventDefault();
+        toggleLightbox(overlay);
+      }
+    });
+  </script>
 </BasePage>
