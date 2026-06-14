@@ -162,17 +162,9 @@ const pictureHeights = [
       }
 
       function lockScroll(lock: boolean) {
-        const root = document.documentElement;
-        if (lock) {
-          // Compensate for the scrollbar that `overflow: hidden` removes, so
-          // the layout width stays constant and the gallery doesn't shift.
-          const sbw = window.innerWidth - root.clientWidth;
-          if (sbw > 0) root.style.paddingRight = `${sbw}px`;
-          root.style.overflow = "hidden";
-        } else {
-          root.style.overflow = "";
-          root.style.paddingRight = "";
-        }
+        // `scrollbar-gutter: stable` on <html> keeps the gutter reserved, so
+        // toggling overflow doesn't shift the layout.
+        document.documentElement.style.overflow = lock ? "hidden" : "";
       }
 
       async function open(t: HTMLButtonElement) {

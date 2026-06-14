@@ -63,6 +63,13 @@
         overflow-x: hidden;
     }
 
+    html {
+        /* Reserve the scrollbar gutter at all times so toggling overflow:hidden
+           (menu open, lightbox open) never removes the scrollbar and shifts the
+           page layout. */
+        scrollbar-gutter: stable;
+    }
+
     *, *:before, *:after {
         margin: 0;
         padding: 0;
