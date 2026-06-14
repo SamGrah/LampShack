@@ -26,6 +26,9 @@
     /* centers content horizontally, set to flex-start to left align */
     align-items: center;
   }
+  #reviews-607 .cs-content .cs-text {
+    text-wrap: balance;
+  }
   #reviews-607 .cs-card-group {
     width: 100%;
     margin: 0;
