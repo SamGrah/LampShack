@@ -220,7 +220,20 @@ const pictureHeights = [
           stage.style.transition = "";
           img.src = "";
           lockScroll(false);
-          if (activeThumb) activeThumb.focus();
+          // Restore focus to the thumbnail for accessibility, but mark it so
+          // CSS suppresses the focus-visible outline on this programmatic
+          // (mouse/Esc-driven) return. A genuine keyboard Tab onto the thumb
+          // later still shows the outline. The marker clears on blur.
+          if (activeThumb) {
+            const t = activeThumb;
+            t.classList.add("is-returning");
+            t.addEventListener(
+              "blur",
+              () => t.classList.remove("is-returning"),
+              { once: true }
+            );
+            t.focus({ preventScroll: true });
+          }
           activeThumb = null;
         };
 

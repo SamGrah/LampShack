@@ -84,6 +84,9 @@
     display: block;
     cursor: zoom-in;
     overflow: hidden;
+    /* When focus is returned programmatically after closing the
+               lightbox, suppress the focus-visible outline and image pop so
+               the gallery looks untouched. Keyboard Tab focus is unaffected. */
   }
   #gallery-48 .cs-picture img {
     position: absolute;
@@ -101,6 +104,12 @@
   #gallery-48 .cs-picture:focus-visible {
     outline: 3px solid var(--primary);
     outline-offset: 3px;
+  }
+  #gallery-48 .cs-picture.is-returning:focus-visible {
+    outline: none;
+  }
+  #gallery-48 .cs-picture.is-returning:focus-visible img {
+    transform: none;
   }
   #gallery-48 .cs-row-1 .cs-picture-1 {
     height: 35.4375em;

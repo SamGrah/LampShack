@@ -5,8 +5,8 @@
 @media only screen and (min-width: 0rem) {
   #cs-contact-265 {
     padding: var(--sectionPadding);
-    /* Info card — echoes the homepage services card: white surface,
-           soft shadow, maroon top border as the site's signature accent */
+    /* Info card — uses the site's flat gray card pattern (same as the
+           review cards): #F0F0F0, no shadow, no border, no radius. */
   }
   #cs-contact-265 .cs-container {
     width: 100%;
@@ -43,9 +43,7 @@
   }
   #cs-contact-265 .cs-info-card {
     width: 100%;
-    background-color: #fff;
-    border-top: 8px solid var(--primary);
-    box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.08);
+    background-color: #F0F0F0;
     box-sizing: border-box;
     /* 24px - 40px */
     padding: clamp(1.5rem, 5vw, 2.5rem);

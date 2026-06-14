@@ -41,6 +41,20 @@ Nav/footer/CTA links point to `/contact.html`, `/portfolio.html`, etc. (e.g. `Na
 - Deploy is Netlify Git-based (push to deploy). `.netlify/` is local-only state and gitignored — never commit it.
 - `tsconfig.json` extends `astro/tsconfigs/strict`.
 
+## Sitewide design system
+
+The visual system lives in `src/styles/less/core-styles.less` (`:root` vars). Match it when adding or restyling anything; don't invent new colors/spacing. Edit the `.less`, then `npm run styles`.
+
+- **Color** (CSS vars): `--primary #853A3A` (maroon — the single accent), `--secondary #E4A95F` (gold), `--headerColor #1a1a1a`, `--bodyTextColor #4E4B66`, `--bodyTextColorWhite #FAFBFC`. Dark surfaces (footer, banner overlay) use `#1a1a1a`. Flat card surfaces use `#F0F0F0`. Reference vars (`var(--primary)`), never hardcode these hexes.
+- **Type:** Roboto (400/700/900), local-hosted from `/fonts`. Scale vars: `--topperFontSize`, `--headerFontSize`, `--bodyFontSize` (1rem / 1.5em line-height). LESS uses `px/16rem` math, so it must be compiled.
+- **Eyebrow + heading:** `.cs-topper` is the uppercase, letter-spaced, maroon eyebrow above a section title; `.cs-title` is the weight-900 header. Every content section opens with topper → title (+ optional `.cs-text`). Don't leave a `.cs-topper` empty — give it real copy or omit it.
+- **Section pattern:** `#section { padding: var(--sectionPadding) }` → `.cs-container` (max-width ~`1280/16rem`, centered) → `.cs-content` (flex column holding topper/title/text). Reviews, contact, portfolio, and the homepage all follow this.
+- **Cards (flat-gray pattern):** the review cards (`#reviews-607 .cs-item`) and the contact hours card (`.cs-info-card`) are the canonical card: background `#F0F0F0`, **no** shadow, **no** border, **no** border-radius, generous `clamp()` padding, left-aligned content. Reuse this for any new card; don't add shadows/radius/borders to it.
+- **Button:** `.cs-button-solid` — solid maroon, white text, weight 700, with a black wipe-fill on hover (`&:before` width 0→100%).
+- **Interior banner:** `#banner-712` is the interior-page hero (dark image overlay, gradient on tablet, `.cs-int-title`). Every non-home page starts with it.
+- **Motifs:** maroon is the one accent — spend boldness there and keep everything else quiet. The homepage hero has an angled white-triangle motif (`#hero-81` pseudo-elements); it's homepage-specific, not a global device.
+- **Dark mode** is wired via `body.dark-mode` (toggle in nav, styles in `dark.less` + per-page overrides). Mirror any new color into the dark-mode rules.
+
 ## Frontend design skill
 
 The Anthropic `frontend-design` skill is installed at `.opencode/skills/frontend-design/` and registered via `opencode.json`. Load it (skill tool) before any non-trivial visual/UI work — new sections, restyling, or layout changes — to keep the site distinctive rather than templated.
