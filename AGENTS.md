@@ -7,8 +7,9 @@ Marketing site for The Lamp Shack, a one-person lamp/lighting repair business in
 - `npm install` — install deps
 - `npm run dev` — dev server at `localhost:4321` (note: 4321, not Astro's old 3000)
 - `npm run build` — production build to `dist/`
-- `npm run preview` — preview the build before deploy
-- No test, lint, or typecheck scripts exist. For type checks run `npm run astro -- check`.
+- `npm run preview` is defined but **does not work**: the `@astrojs/netlify` adapter rejects `astro preview`. To eyeball a build, serve the static output instead (e.g. `npx serve dist`).
+- `npm run styles` — compile every `src/styles/less/*.less` to its matching `.css` (`lessc --math=always`). Run after editing any `.less`.
+- No test or lint scripts exist. `npm run astro -- check` does a typecheck but first prompts to install `@astrojs/check` + `typescript` (not currently in `package.json`).
 
 ## Styling: LESS is the source, CSS is generated — do NOT hand-edit CSS
 
