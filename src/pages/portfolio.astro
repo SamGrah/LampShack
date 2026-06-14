@@ -12,7 +12,32 @@ import Example8Image from "../assets/images/example8.jpeg"
 import Example9Image from "../assets/images/example9.jpeg"
 import "../styles/css/portfolio.css";
 import BasePage from "../components/BasePage.astro";
-// import Modal from "../components/modal.astro";
+
+// Gallery items, laid out into three columns. `full` is a higher-resolution
+// variant Astro generates from the same source for the expanded view.
+const gallery = [
+  { img: Example1Image, alt: "fixture with four hanging lanterns" },
+  { img: Example2Image, alt: "two lamps with circular glass bodies" },
+  { img: Example3Image, alt: "tripod base supporting shaded lamp" },
+  { img: Example4Image, alt: "ornate table top lamp with metalwork decorations" },
+  { img: Example5Image, alt: "antique handlamp with metalic housing" },
+  { img: Example6Image, alt: "six post hanging lamp with gold body" },
+  { img: Example7Image, alt: "two tier chandelier with hanging crystals" },
+  { img: Example8Image, alt: "candelabra style table top lamp" },
+  { img: Example9Image, alt: "unfinished antique metalic and ivory lamp base with metalic legs" },
+];
+
+// Column assignment preserves the original 3x3 layout (row-major).
+const columns = [
+  [gallery[0], gallery[3], gallery[6]],
+  [gallery[1], gallery[4], gallery[7]],
+  [gallery[2], gallery[5], gallery[8]],
+];
+const pictureHeights = [
+  ["567", "492", "625"],
+  ["629", "517", "452"],
+  ["512", "629", "629"],
+];
 ---
 
 <BasePage>
@@ -27,7 +52,7 @@ import BasePage from "../components/BasePage.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <Image class = "cs-background" src={ToolsImage} alt="tools" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
+        <Image class="cs-background" src={ToolsImage} alt="tools" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
       </picture>
     </div>
 
@@ -42,257 +67,206 @@ import BasePage from "../components/BasePage.astro";
           <h2 class="cs-title">Finished Work</h2>
         </div>
         <div class="cs-image-group">
-          <div class="cs-row cs-row-1">
-            <!-- Row 1-->
-            <div class="cs-lightbox-item" style="--lb-name: lb-1;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-1"
-                aria-label="Expand image: fixture with four hanging lanterns"
-              />
-              <label class="cs-picture cs-picture-1 cs-lightbox-thumb" for="lb-1">
-                <Image id="example-image-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="eager" aria-hidden="true" />
-                <!-- <Image class = "cs-picture cs-picture-1" src={Example1Image} alt="fixture with four hanging lanterns" width="420" height="567" decoding="async" loading="eager" aria-hidden="true" /> -->
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-1" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example1Image} alt="fixture with four hanging lanterns" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
+          {columns.map((col, c) => (
+            <div class={`cs-row cs-row-${c + 1}`}>
+              {col.map((item, r) => (
+                <button
+                  type="button"
+                  class={`cs-picture cs-picture-${r + 1} cs-thumb`}
+                  aria-label={`Expand image: ${item.alt}`}
+                >
+                  <Image
+                    src={item.img}
+                    alt={item.alt}
+                    widths={[420, 840]}
+                    sizes="(max-width: 48rem) 33vw, 420px"
+                    height={Number(pictureHeights[c][r])}
+                    width={420}
+                    decoding="async"
+                    loading="eager"
+                    data-full={item.img.src}
+                  />
+                </button>
+              ))}
             </div>
-            <div class="cs-lightbox-item" style="--lb-name: lb-2;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-2"
-                aria-label="Expand image: two lamps with circular glass bodies"
-              />
-              <label class="cs-picture cs-picture-2 cs-lightbox-thumb" for="lb-2">
-                <Image id="example-image-2" class = "cs-picture cs-picture-2" src={Example2Image} alt="two lamps with circular glass bodies" width="420" height="630" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-2" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example2Image} alt="two lamps with circular glass bodies" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <div class="cs-lightbox-item" style="--lb-name: lb-3;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-3"
-                aria-label="Expand image: tripod base supporting shaded lamp"
-              />
-              <label class="cs-picture cs-picture-3 cs-lightbox-thumb" for="lb-3">
-                <Image id="example-image-3" class = "cs-picture cs-picture-3" src={Example3Image} alt="tripod base supporting shaded lamp" width="420" height="512" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-3" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example3Image} alt="tripod base supporting shaded lamp" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-          </div>
-          <!-- Row 2 -->
-          <div class="cs-row cs-row-2">
-            <div class="cs-lightbox-item" style="--lb-name: lb-4;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-4"
-                aria-label="Expand image: ornate table top lamp with metalwork decorations"
-              />
-              <label class="cs-picture cs-picture-1 cs-lightbox-thumb" for="lb-4">
-                <Image id="example-image-4" class = "cs-picture cs-picture-1" src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="420" height="492" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-4" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example4Image} alt="ornate table top lamp with metalwork decorations" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <div class="cs-lightbox-item" style="--lb-name: lb-5;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-5"
-                aria-label="Expand image: antique handlamp with metalic housing"
-              />
-              <label class="cs-picture cs-picture-2 cs-lightbox-thumb" for="lb-5">
-                <Image id="example-image-5" class = "cs-picture cs-picture-2" src={Example5Image} alt="antique handlamp with metalic housing" width="420" height="517" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-5" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example5Image} alt="antique handlamp with metalic housing" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <div class="cs-lightbox-item" style="--lb-name: lb-6;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-6"
-                aria-label="Expand image: six post hanging lamp with gold body"
-              />
-              <label class="cs-picture cs-picture-3 cs-lightbox-thumb" for="lb-6">
-                <Image id="example-image-6" class = "cs-picture cs-picture-3" src={Example6Image} alt="six post hanging lamp with gold body" width="420" height="629" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-6" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example6Image} alt="six post hanging lamp with gold body" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-          </div>
-          <!-- Row 3 -->
-          <div class="cs-row cs-row-3">
-            <div class="cs-lightbox-item" style="--lb-name: lb-7;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-7"
-                aria-label="Expand image: two tier chandelier with hanging crystals"
-              />
-              <label class="cs-picture cs-picture-1 cs-lightbox-thumb" for="lb-7">
-                <Image id="example-image-7" class = "cs-picture cs-picture-1" src={Example7Image} alt="two tier chandelier with hanging crystals" width="420" height="625" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-7" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example7Image} alt="two tier chandelier with hanging crystals" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <div class="cs-lightbox-item" style="--lb-name: lb-8;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-8"
-                aria-label="Expand image: candelabra style table top lamp"
-              />
-              <label class="cs-picture cs-picture-2 cs-lightbox-thumb" for="lb-8">
-                <Image id="example-image-8" class = "cs-picture cs-picture-2" src={Example8Image} alt="candelabra style table top lamp" width="420" height="452" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-8" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example8Image} alt="candelabra style table top lamp" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <div class="cs-lightbox-item" style="--lb-name: lb-9;">
-              <input
-                class="cs-lightbox-toggle"
-                type="checkbox"
-                id="lb-9"
-                aria-label="Expand image: unfinished antique metalic and ivory lamp base with metalic legs"
-              />
-              <label class="cs-picture cs-picture-3 cs-lightbox-thumb" for="lb-9">
-                <Image id="example-image-9" class = "cs-picture cs-picture-3" src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="420" height="629" decoding="async" loading="eager" aria-hidden="true" />
-              </label>
-              <label class="cs-lightbox-overlay" for="lb-9" aria-hidden="true">
-                <div class="cs-lightbox-dialog">
-                  <Image src={Example9Image} alt="unfinished antique metalic and ivory lamp base with metalic legs" width="1280" decoding="async" loading="eager" />
-                </div>
-              </label>
-            </div>
-            <!-- To add more images, copy and paste this row's picture tags here in order from cs-picture-1 to cs-picture-3 and they will maintain the same layout-->
-          </div>
+          ))}
         </div>
       </div>
     </section>
-
-    <!-- ============================================ -->
-    <!--                   Pic Modals                 -->
-    <!-- ============================================ -->
   </main>
-  <!-- <Modal picId="example-image-1" img={Example1Image} altText="fixture with four hanging lanterns" />
-  <Modal picId="example-image-2" img={Example2Image} altText="two lamps with circular glass bodies" />
-  <Modal picId="example-image-3" img={Example3Image} altText="tripod base supporting shaded lamp" />
-  <Modal picId="example-image-4" img={Example4Image} altText="ornate table top lamp with metalwork decorations" />
-  <Modal picId="example-image-5" img={Example5Image} altText="antique handlamp with metalic housing" />
-  <Modal picId="example-image-6" img={Example6Image} altText="six post hanging lamp with gold body" />
-  <Modal picId="example-image-7" img={Example7Image} altText="two tier chandelier with hanging crystals" />
-  <Modal picId="example-image-8" img={Example8Image} altText="candelabra style table top lamp" />
-  <Modal picId="example-image-9" img={Example9Image} altText="unfinished antique metalic and ivory lamp base with metalic legs" /> -->
-  <script type="module">
-    const lightboxThumbs = document.querySelectorAll("#gallery-48 .cs-lightbox-thumb");
 
-    const prefersReducedMotion = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    );
+  <!-- ============================================ -->
+  <!--              Lightbox overlay                -->
+  <!-- ============================================ -->
+  <div id="cs-lightbox" class="cs-lightbox" aria-hidden="true">
+    <div class="cs-lightbox-backdrop"></div>
+    <figure class="cs-lightbox-stage">
+      <img class="cs-lightbox-img" alt="" />
+    </figure>
+    <button type="button" class="cs-lightbox-close" aria-label="Close image">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+        <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
 
-    const FADE_DURATION = 100; // ms - matches CSS transition
+  <script>
+    // FLIP expandable gallery: the clicked thumbnail morphs to a centered
+    // full-size image over a backdrop, can be zoomed, and animates back on
+    // close. No layout artifacts because we animate a single overlay image
+    // between measured rectangles (First/Last/Invert/Play).
+    (() => {
+      const lb = document.getElementById("cs-lightbox");
+      if (!lb) return;
+      const lightbox = lb;
+      const stage = lightbox.querySelector(".cs-lightbox-stage") as HTMLElement;
+      const img = lightbox.querySelector(".cs-lightbox-img") as HTMLImageElement;
+      const closeBtn = lightbox.querySelector(".cs-lightbox-close") as HTMLElement;
+      const thumbs = Array.from(
+        document.querySelectorAll<HTMLButtonElement>("#gallery-48 .cs-thumb")
+      );
 
-    const toggleLightbox = (label) => {
-      const targetId = label.htmlFor;
-      if (!targetId) return;
-      const checkbox = document.getElementById(targetId);
-      if (!(checkbox instanceof HTMLInputElement)) return;
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      const OPEN_MS = 360;
+      const EASE = "cubic-bezier(0.22, 0.61, 0.36, 1)";
 
-      const item = label.closest(".cs-lightbox-item");
-      const nextChecked = !checkbox.checked;
-      const isOpening = nextChecked;
+      let activeThumb: HTMLButtonElement | null = null;
+      let isOpen = false;
+      let isZoomed = false;
+      let isAnimating = false;
 
-      const runTransition = () => {
-        if (document.startViewTransition && !prefersReducedMotion.matches) {
-          if (item) {
-            item.classList.add("is-active");
-          }
-          const transition = document.startViewTransition(() => {
-            document.documentElement.classList.add("lb-vt");
-            checkbox.checked = nextChecked;
-          });
+      const thumbImg = (t: HTMLButtonElement) => t.querySelector("img");
 
-          transition.finished.finally(() => {
-            document.documentElement.classList.remove("lb-vt");
-            document.documentElement.classList.remove("lb-fade-out");
-            if (item) {
-              item.classList.remove("is-active");
-            }
-          });
-        } else {
-          checkbox.checked = nextChecked;
-          document.documentElement.classList.remove("lb-fade-out");
-        }
-      };
-
-      if (isOpening) {
-        // Fade out elements first, then run transition
-        document.documentElement.classList.add("lb-fade-out");
-        if (item) {
-          item.classList.add("is-active");
-        }
-        setTimeout(runTransition, FADE_DURATION);
-      } else {
-        runTransition();
+      function setStageRectToThumb(t: HTMLButtonElement) {
+        const r = (thumbImg(t) as HTMLElement).getBoundingClientRect();
+        stage.style.top = `${r.top}px`;
+        stage.style.left = `${r.left}px`;
+        stage.style.width = `${r.width}px`;
+        stage.style.height = `${r.height}px`;
       }
-    };
 
-    // Thumbnails: click to open
-    lightboxThumbs.forEach((label) => {
-      label.addEventListener("click", (event) => {
-        event.preventDefault();
-        toggleLightbox(label);
+      // The centered target rectangle the image expands to.
+      function setStageRectToTarget() {
+        const margin = Math.min(window.innerWidth, window.innerHeight) * 0.06;
+        const maxW = window.innerWidth - margin * 2;
+        const maxH = window.innerHeight - margin * 2;
+        const natW = img.naturalWidth || maxW;
+        const natH = img.naturalHeight || maxH;
+        const scale = Math.min(maxW / natW, maxH / natH, 1);
+        const w = natW * scale;
+        const h = natH * scale;
+        stage.style.width = `${w}px`;
+        stage.style.height = `${h}px`;
+        stage.style.top = `${(window.innerHeight - h) / 2}px`;
+        stage.style.left = `${(window.innerWidth - w) / 2}px`;
+      }
+
+      function lockScroll(lock: boolean) {
+        document.documentElement.style.overflow = lock ? "hidden" : "";
+      }
+
+      async function open(t: HTMLButtonElement) {
+        if (isAnimating || isOpen) return;
+        activeThumb = t;
+        const source = thumbImg(t) as HTMLImageElement;
+        const full = source.getAttribute("data-full") || source.currentSrc || source.src;
+
+        // Load the full image first so we know its natural size.
+        img.src = full;
+        img.alt = source.alt;
+        if (!img.complete) {
+          await new Promise((res) => {
+            img.onload = res;
+            img.onerror = res;
+          });
+        }
+
+        isOpen = true;
+        lightbox.classList.add("is-visible");
+        lightbox.setAttribute("aria-hidden", "false");
+        lockScroll(true);
+
+        if (reduceMotion.matches) {
+          setStageRectToTarget();
+          lightbox.classList.add("is-open");
+          closeBtn.focus();
+          return;
+        }
+
+        // FLIP: start at the thumbnail rect, transition to target rect.
+        isAnimating = true;
+        setStageRectToThumb(t);
+        stage.style.transition = "none";
+        // force reflow so the start rect is committed
+        void stage.offsetWidth;
+        stage.style.transition = `top ${OPEN_MS}ms ${EASE}, left ${OPEN_MS}ms ${EASE}, width ${OPEN_MS}ms ${EASE}, height ${OPEN_MS}ms ${EASE}`;
+        lightbox.classList.add("is-open");
+        requestAnimationFrame(() => setStageRectToTarget());
+        window.setTimeout(() => {
+          isAnimating = false;
+          closeBtn.focus();
+        }, OPEN_MS);
+      }
+
+      function close() {
+        if (isAnimating || !isOpen) return;
+        if (isZoomed) toggleZoom(false);
+
+        const finish = () => {
+          isOpen = false;
+          isAnimating = false;
+          lightbox.classList.remove("is-visible", "is-open");
+          lightbox.setAttribute("aria-hidden", "true");
+          stage.style.transition = "";
+          img.src = "";
+          lockScroll(false);
+          if (activeThumb) activeThumb.focus();
+          activeThumb = null;
+        };
+
+        if (reduceMotion.matches || !activeThumb) {
+          finish();
+          return;
+        }
+
+        isAnimating = true;
+        lightbox.classList.remove("is-open");
+        stage.style.transition = `top ${OPEN_MS}ms ${EASE}, left ${OPEN_MS}ms ${EASE}, width ${OPEN_MS}ms ${EASE}, height ${OPEN_MS}ms ${EASE}`;
+        setStageRectToThumb(activeThumb);
+        window.setTimeout(finish, OPEN_MS);
+      }
+
+      function toggleZoom(force?: boolean) {
+        isZoomed = typeof force === "boolean" ? force : !isZoomed;
+        lightbox.classList.toggle("is-zoomed", isZoomed);
+      }
+
+      // Thumbnails open the lightbox.
+      thumbs.forEach((t) => t.addEventListener("click", () => open(t)));
+
+      // Click the expanded image to toggle zoom; click backdrop/close to exit.
+      img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (!isAnimating) toggleZoom();
       });
-    });
+      closeBtn.addEventListener("click", close);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === closeBtn || (e.target as HTMLElement).closest(".cs-lightbox-close")) return;
+        if (e.target !== img) close();
+      });
 
-    // Close lightbox on any click/tap when open
-    document.addEventListener("click", (event) => {
-      // Find any open lightbox
-      const checkedToggle = document.querySelector("#gallery-48 .cs-lightbox-toggle:checked");
-      if (!checkedToggle) return;
+      // Keyboard: Esc closes.
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen) close();
+      });
 
-      // Don't close if clicking a thumbnail to open
-      if (event.target.closest(".cs-lightbox-thumb")) return;
-
-      // Close the open lightbox
-      const overlay = checkedToggle.closest(".cs-lightbox-item")?.querySelector(".cs-lightbox-overlay");
-      if (overlay) {
-        event.preventDefault();
-        toggleLightbox(overlay);
-      }
-    });
+      // Keep the expanded image centered on resize.
+      window.addEventListener("resize", () => {
+        if (isOpen && !isAnimating && !isZoomed) {
+          stage.style.transition = "none";
+          setStageRectToTarget();
+        }
+      });
+    })();
   </script>
 </BasePage>

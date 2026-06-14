@@ -28,7 +28,7 @@
             /* centers content horizontally, set to flex-start to left align */
             align-items: center;
         }
-    
+
         .cs-topper {
             font-size: var(--topperFontSize);
             line-height: 1.2em;
@@ -40,22 +40,16 @@
             margin-bottom: (4/16rem);
             display: block;
         }
-    
+
         .cs-title {
             font-size: var(--headerFontSize);
             font-weight: 900;
             line-height: 1.2em;
             text-align: inherit;
-            max-width: (700/16rem);
-            margin: 0 0 (16/16rem) 0;
-            color: var(--headerColor);
-            position: relative;
-        }
-
-        .cs-title {
-            /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
             margin: 0;
             max-width: 20ch;
+            color: var(--headerColor);
+            position: relative;
         }
 
         .cs-image-group {
@@ -69,7 +63,6 @@
             align-items: flex-start;
             /* 8px - 20px */
             gap: clamp(.5rem, 2vw, 1.25rem);
-            isolation: isolate;
         }
 
         .cs-row {
@@ -80,15 +73,25 @@
             align-items: center;
             /* 8px - 20px */
             gap: clamp(.5rem, 2vw, 1.25rem);
-            position: relative;
-            z-index: 0;
         }
 
+        /* Thumbnails are buttons so they're keyboard-focusable and announce
+           as interactive. Reset the native button chrome. */
         .cs-picture {
+            appearance: none;
+            -webkit-appearance: none;
+            font: inherit;
+            color: inherit;
             border: 1px solid grey;
+            padding: 0;
+            margin: 0;
+            background: none;
             width: 100%;
             position: relative;
             display: block;
+            cursor: zoom-in;
+            overflow: hidden;
+
             img {
                 position: absolute;
                 top: 0;
@@ -96,109 +99,18 @@
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
-                /* transition: -webkit-transform 0.25s ease; */
-                /* transition: transform 0.25s ease; */
+                transition: transform .4s ease, filter .3s ease;
             }
-        }
 
-        /* Lightbox (CSS-only) */
-        .cs-lightbox-item {
-            width: 100%;
-            position: relative;
-            z-index: 1;
-        }
+            &:hover img,
+            &:focus-visible img {
+                transform: scale(1.05);
+            }
 
-        .cs-lightbox-toggle {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .cs-lightbox-thumb {
-            cursor: zoom-in;
-        }
-
-        .cs-lightbox-toggle:focus-visible + .cs-lightbox-thumb {
-            outline: 2px solid rgba(0, 0, 0, 0.6);
-            outline-offset: 4px;
-        }
-
-        .cs-lightbox-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 2147483646;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: clamp(1rem, 3vw, 2.5rem);
-            background: rgba(40, 40, 40, 0.45);
-            cursor: zoom-out;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .cs-lightbox-toggle:checked ~ .cs-lightbox-overlay {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .cs-lightbox-dialog {
-            display: block;
-            max-width: min(92vw, 70rem);
-            max-height: 92vh;
-            transform: scale(0.98);
-            width: auto;
-            height: auto;
-        }
-
-        .cs-lightbox-toggle:checked ~ .cs-lightbox-overlay .cs-lightbox-dialog {
-            transform: scale(1);
-        }
-
-        .cs-lightbox-dialog img {
-            position: static;
-            display: block;
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 92vh;
-            object-fit: contain;
-            border-radius: 6px;
-            box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
-        }
-
-        .cs-lightbox-item.is-active {
-            z-index: 2147483647;
-        }
-
-        .cs-lightbox-item.is-active .cs-lightbox-thumb {
-            position: relative;
-            z-index: 2147483647;
-        }
-
-        /* Base transition for gallery items */
-        .cs-lightbox-item {
-            transition: opacity 0.1s ease-out;
-        }
-
-        .cs-lightbox-toggle:checked + .cs-lightbox-thumb {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .cs-lightbox-thumb img,
-        .cs-lightbox-dialog img {
-            view-transition-name: none;
-        }
-
-        .cs-lightbox-toggle:not(:checked) + .cs-lightbox-thumb img {
-            view-transition-name: var(--lb-name);
-        }
-
-        .cs-lightbox-toggle:checked ~ .cs-lightbox-overlay .cs-lightbox-dialog img {
-            view-transition-name: var(--lb-name);
+            &:focus-visible {
+                outline: 3px solid var(--primary);
+                outline-offset: 3px;
+            }
         }
 
         .cs-row-1 {
@@ -243,136 +155,6 @@
             }
         }
     }
-
-    /* During transitions: hide non-active items */
-    html.lb-vt #gallery-48 .cs-lightbox-item:not(.is-active) {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    html.lb-vt #gallery-48 .cs-lightbox-item.is-active {
-        opacity: 1;
-        z-index: 2147483647;
-        position: relative;
-    }
-
-    /* Fade out non-active items before opening */
-    html.lb-fade-out #gallery-48 .cs-lightbox-item:not(.is-active) {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    /* When lightbox is open: hide all items except the one with checked toggle */
-    #gallery-48:has(.cs-lightbox-toggle:checked) .cs-lightbox-item {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    #gallery-48 .cs-lightbox-item:has(.cs-lightbox-toggle:checked) {
-        opacity: 1;
-        pointer-events: auto;
-        z-index: 2147483647;
-    }
-
-    ::view-transition {
-        position: fixed;
-        inset: 0;
-        z-index: 2147483647;
-        pointer-events: none;
-    }
-
-    /* Prevent default crossfade on root during lightbox transitions */
-    html.lb-vt::view-transition-old(root),
-    html.lb-vt::view-transition-new(root) {
-        animation: none;
-        mix-blend-mode: normal;
-    }
-
-    :root::view-transition-group(lb-1),
-    :root::view-transition-group(lb-2),
-    :root::view-transition-group(lb-3),
-    :root::view-transition-group(lb-4),
-    :root::view-transition-group(lb-5),
-    :root::view-transition-group(lb-6),
-    :root::view-transition-group(lb-7),
-    :root::view-transition-group(lb-8),
-    :root::view-transition-group(lb-9) {
-        position: fixed;
-        inset: 0;
-        z-index: 2147483647;
-        pointer-events: none;
-        animation-duration: 400ms;
-        animation-timing-function: ease;
-    }
-
-    :root::view-transition-image-pair(lb-1),
-    :root::view-transition-image-pair(lb-2),
-    :root::view-transition-image-pair(lb-3),
-    :root::view-transition-image-pair(lb-4),
-    :root::view-transition-image-pair(lb-5),
-    :root::view-transition-image-pair(lb-6),
-    :root::view-transition-image-pair(lb-7),
-    :root::view-transition-image-pair(lb-8),
-    :root::view-transition-image-pair(lb-9) {
-        position: fixed;
-        inset: 0;
-        z-index: 2147483647;
-        pointer-events: none;
-    }
-
-    :root::view-transition-old(lb-1),
-    :root::view-transition-old(lb-2),
-    :root::view-transition-old(lb-3),
-    :root::view-transition-old(lb-4),
-    :root::view-transition-old(lb-5),
-    :root::view-transition-old(lb-6),
-    :root::view-transition-old(lb-7),
-    :root::view-transition-old(lb-8),
-    :root::view-transition-old(lb-9),
-    :root::view-transition-new(lb-1),
-    :root::view-transition-new(lb-2),
-    :root::view-transition-new(lb-3),
-    :root::view-transition-new(lb-4),
-    :root::view-transition-new(lb-5),
-    :root::view-transition-new(lb-6),
-    :root::view-transition-new(lb-7),
-    :root::view-transition-new(lb-8),
-    :root::view-transition-new(lb-9) {
-        position: absolute;
-        inset: 0;
-        animation-duration: 400ms;
-        animation-timing-function: ease;
-    }
-
-    /* Base transition for fade effect */
-    #cs-navigation,
-    footer,
-    #banner-712,
-    #gallery-48 .cs-content {
-        transition: opacity 0.1s ease-out;
-    }
-
-    /* Fade out before opening lightbox */
-    html.lb-fade-out #cs-navigation,
-    html.lb-fade-out footer,
-    html.lb-fade-out #banner-712,
-    html.lb-fade-out #gallery-48 .cs-content {
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
-
-    /* Hide navbar, footer, banner, and content during lightbox transitions and when open */
-    html.lb-vt #cs-navigation,
-    html.lb-vt footer,
-    html.lb-vt #banner-712,
-    html.lb-vt #gallery-48 .cs-content,
-    body:has(.cs-lightbox-toggle:checked) #cs-navigation,
-    body:has(.cs-lightbox-toggle:checked) footer,
-    body:has(.cs-lightbox-toggle:checked) #banner-712,
-    body:has(.cs-lightbox-toggle:checked) #gallery-48 .cs-content {
-        opacity: 0 !important;
-        pointer-events: none !important;
-    }
 }
 
 /* Dark Mode */
@@ -385,86 +167,108 @@
         }
     }
 }
-                                
+
 /*-- -------------------------- -->
-<---            CTA             -->
+<---      Expandable Lightbox    -->
 <--- -------------------------- -*/
 
-/* Mobile - 360px */
 @media only screen and (min-width: 0rem) {
-    #cta-51 {
-        padding: var(--sectionPadding);
-        position: relative;
+    .cs-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+        /* hidden until opened; toggled by JS */
+        visibility: hidden;
+        pointer-events: none;
 
-        .cs-container {
-            width: 100%;
-            max-width: (1280/16rem);
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            /* 48px - 64px */
-            gap: clamp(3rem, 6vw, 4rem);
+        &.is-visible {
+            visibility: visible;
+            pointer-events: auto;
         }
 
-        .cs-content {
-            /* set text align to left if content needs to be left aligned */
-            text-align: center;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            /* centers content horizontally, set to flex-start to left align */
-            align-items: center;
-        }
-
-        .cs-topper {
-            color: var(--secondary);
-        }
-
-        .cs-title, .cs-text {
-            color: var(--bodyTextColorWhite);
-        }
-
-        .cs-text {
-            /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
-            margin-bottom: 16/16rem;
-            opacity: .8;
-            &:last-of-type {
-                margin-bottom: 32/16rem;
-            }
-        }
-
-        .cs-picture {
-            height: 100%;
-            width: 100%;
-            display: block;
+        .cs-lightbox-backdrop {
             position: absolute;
-            z-index: -1;
-            top: 0;
-            left: 0;
-            z-index: -1;
+            inset: 0;
+            background: rgba(20, 20, 20, 0.82);
+            opacity: 0;
+            transition: opacity .36s ease;
+            cursor: zoom-out;
+        }
 
-            &:before {
-                /* black color overlay */
-                content: '';
-                position: absolute;
-                display: block;
-                height: 100%;
-                width: 100%;
-                background: #000;
-                opacity: .8;
-                top: 0;
-                left: 0;
-                z-index: 1;
+        &.is-open .cs-lightbox-backdrop {
+            opacity: 1;
+        }
+
+        /* The morphing frame. JS sets top/left/width/height in px. */
+        .cs-lightbox-stage {
+            position: absolute;
+            margin: 0;
+            overflow: hidden;
+            border-radius: (4/16rem);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            will-change: top, left, width, height;
+        }
+
+        .cs-lightbox-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            cursor: zoom-in;
+        }
+
+        /* Zoomed state: let the image overflow its frame for a closer look. */
+        &.is-zoomed .cs-lightbox-stage {
+            overflow: visible;
+            z-index: 1;
+        }
+
+        &.is-zoomed .cs-lightbox-img {
+            transform: scale(1.8);
+            cursor: zoom-out;
+            transition: transform .3s ease;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .cs-lightbox-close {
+            position: absolute;
+            top: clamp(1rem, 3vw, 1.75rem);
+            right: clamp(1rem, 3vw, 1.75rem);
+            width: (44/16rem);
+            height: (44/16rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity .36s ease, background .2s ease;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.25);
             }
 
-            img {
-                position: absolute;
-                top: 0;
-                left: 0;
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
+            &:focus-visible {
+                outline: 2px solid #fff;
+                outline-offset: 2px;
+            }
+        }
+
+        &.is-open .cs-lightbox-close {
+            opacity: 1;
+        }
+    }
+
+    /* Respect reduced-motion: no morph/zoom transitions. */
+    @media (prefers-reduced-motion: reduce) {
+        .cs-lightbox {
+            .cs-lightbox-backdrop,
+            .cs-lightbox-img,
+            .cs-lightbox-close {
+                transition: none;
             }
         }
     }

@@ -63,7 +63,23 @@ const MIME = {
 
 // Resolve a request URL to a file inside dist/, mapping Astro's
 // directory-style routes (e.g. /contact -> /contact/index.html).
+// Also emulate the Netlify image CDN (`/.netlify/images?url=_astro/x.jpeg&...`)
+// by serving the underlying static asset, so `<Image>` renders locally.
 async function resolveFile(urlPath) {
+  if (urlPath.startsWith("/.netlify/images")) {
+    const u = new URL(urlPath, "http://x");
+    const inner = u.searchParams.get("url");
+    if (inner) {
+      const f = join(DIST, decodeURIComponent(inner));
+      try {
+        await stat(f);
+        return f;
+      } catch {
+        /* fall through to 404 */
+      }
+    }
+    return null;
+  }
   let p = decodeURIComponent(urlPath.split("?")[0]);
   if (p.endsWith("/")) p = p + "index.html";
   let candidate = join(DIST, p);
