@@ -142,6 +142,24 @@ async function main() {
       for (const pg of pages) {
         const url = `http://localhost:${PORT}${pg.path}`;
         await page.goto(url, { waitUntil: "networkidle" });
+        // Scroll through the page to trigger lazy-loaded content (e.g. the
+        // contact map iframe), then return to top before capturing.
+        await page.evaluate(async () => {
+          await new Promise((resolve) => {
+            let y = 0;
+            const step = () => {
+              window.scrollTo(0, y);
+              y += window.innerHeight;
+              if (y < document.body.scrollHeight) setTimeout(step, 60);
+              else {
+                window.scrollTo(0, 0);
+                setTimeout(resolve, 150);
+              }
+            };
+            step();
+          });
+        });
+        await page.waitForLoadState("networkidle").catch(() => {});
         const out = join(OUT, `${pg.name}-${vp.name}.png`);
         await page.screenshot({ path: out, fullPage: true });
         written.push(out);

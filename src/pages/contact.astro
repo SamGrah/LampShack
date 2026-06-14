@@ -17,59 +17,68 @@ import BasePage from "../components/BasePage.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <Image class = "cs-background" src={WorkbenchImage} alt="workbench" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
+        <Image class="cs-background" src={WorkbenchImage} alt="workbench" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
       </picture>
     </div>
 
     <!-- ============================================ -->
-    <!--                Contact Form                  -->
+    <!--                Contact Info                  -->
     <!-- ============================================ -->
 
     <section id="cs-contact-265">
       <div class="cs-container">
-        <div class="cs-left-section" style="display: block;">
-          <div class="cs-content" style="width: 80%">
-            <span class="cs-topper">Instructions</span>
+        <div class="cs-left-section">
+          <div class="cs-content">
+            <span class="cs-topper">Before You Visit</span>
             <h2 class="cs-title">Please Call Ahead</h2>
             <p class="cs-text">
-              <i><u>Reach me by phone before visiting in person.</u></i>
-              I am retired and may be out & about.
-              If your visit is unexpected, I may not be available.
+              <strong>Reach me by phone before stopping in.</strong> I'm retired
+              and may be out &amp; about — an unexpected visit might catch me
+              away from the shop.
             </p>
-            <br>
-            <div
-              style="background-color:lightgrey; width: 100%; padding: 12px 12px 40px 12px; border-top: 8px solid #853A3A;">
-              <!--hours-->
-              <span class="cs-header">available hours</span>
-              <div class="cs-text" style="display:flex; flex-direction: column;">
-                <div style="width: 50%; display:flex; flex-direction:row; justify-content: space-between;">
-                  <div>weekdays</div>
-                  <div>10am - 4pm</div>
+          </div>
+
+          <div class="cs-info-card">
+            <div class="cs-info-block">
+              <span class="cs-header">Available Hours</span>
+              <dl class="cs-hours">
+                <div class="cs-hours-row">
+                  <dt>Weekdays</dt>
+                  <dd>10am &ndash; 4pm</dd>
                 </div>
-                <div style="width: 50%; display:flex; flex-direction:row; justify-content: space-between;">
-                  <div>saturday</div>
-                  <div>10am - 3pm</div>
+                <div class="cs-hours-row">
+                  <dt>Saturday</dt>
+                  <dd>10am &ndash; 3pm</dd>
                 </div>
-                <div style="width: 50%; display:flex; flex-direction:row; justify-content: space-between;">
-                  <div>sunday</div>
-                  <div>11am - 3pm</div>
+                <div class="cs-hours-row">
+                  <dt>Sunday</dt>
+                  <dd>11am &ndash; 3pm</dd>
                 </div>
-              </div>
-              <!--phone-->
-              <span class="cs-header">phone</span>
+              </dl>
+            </div>
+
+            <div class="cs-info-block">
+              <span class="cs-header">Phone</span>
               <a class="cs-link" href="tel:248-672-2059">(248) 672-2059</a>
-              <!--address-->
-              <span class="cs-header">address</span>
-              <a class="cs-link" href="https://maps.app.goo.gl/yPGWi9MHSPJq6m4A7">618 W Preda Drive, <span
-                  class="cs-block"> Waterford, MI
-                  48328</span></a>
+            </div>
+
+            <div class="cs-info-block">
+              <span class="cs-header">Address</span>
+              <a class="cs-link" href="https://maps.app.goo.gl/yPGWi9MHSPJq6m4A7">
+                618 W Preda Drive,
+                <span class="cs-block">Waterford, MI 48328</span>
+              </a>
             </div>
           </div>
         </div>
+
         <div class="cs-right-section">
           <iframe
+            class="cs-map"
+            title="Map to The Lamp Shack in Waterford, MI"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3799.859613685037!2d-83.38147643241459!3d42.64628168828236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824bc4d4eaa03c3%3A0x8bee045ac1602c00!2sLamp%20Shack%20(Call%201st)!5e0!3m2!1sen!2sus!4v1713045631344!5m2!1sen!2sus"
-            width="100%" height="550" style="border:1;" allowfullscreen="" loading="lazy"
+            allowfullscreen=""
+            loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
