@@ -115,7 +115,10 @@ const pictureHeights = [
     // full-size image over a backdrop, can be zoomed, and animates back on
     // close. No layout artifacts because we animate a single overlay image
     // between measured rectangles (First/Last/Invert/Play).
-    (() => {
+    //
+    // Runs on `astro:page-load` (not just once) so it re-binds after the
+    // ClientRouter swaps the DOM on client-side navigation back to this page.
+    function initLightbox() {
       const lb = document.getElementById("cs-lightbox");
       if (!lb) return;
       const lightbox = lb;
@@ -270,18 +273,31 @@ const pictureHeights = [
         if (e.target !== img) close();
       });
 
-      // Keyboard: Esc closes.
-      document.addEventListener("keydown", (e) => {
+      // Keyboard: Esc closes. Resize keeps the expanded image centered.
+      // These bind to document/window, which persist across ClientRouter
+      // navigations, so clean them up before the next page swap to avoid
+      // stale listeners from prior visits stacking up.
+      const onKeydown = (e: KeyboardEvent) => {
         if (e.key === "Escape" && isOpen) close();
-      });
-
-      // Keep the expanded image centered on resize.
-      window.addEventListener("resize", () => {
+      };
+      const onResize = () => {
         if (isOpen && !isAnimating && !isZoomed) {
           stage.style.transition = "none";
           setStageRectToTarget();
         }
-      });
-    })();
+      };
+      document.addEventListener("keydown", onKeydown);
+      window.addEventListener("resize", onResize);
+
+      const cleanup = () => {
+        document.removeEventListener("keydown", onKeydown);
+        window.removeEventListener("resize", onResize);
+        lockScroll(false);
+        document.removeEventListener("astro:before-swap", cleanup);
+      };
+      document.addEventListener("astro:before-swap", cleanup);
+    }
+
+    document.addEventListener("astro:page-load", initLightbox);
   </script>
 </BasePage>
