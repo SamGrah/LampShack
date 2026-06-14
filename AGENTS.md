@@ -9,7 +9,8 @@ Marketing site for The Lamp Shack, a one-person lamp/lighting repair business in
 - `npm run build` — production build to `dist/`
 - `npm run preview` is defined but **does not work**: the `@astrojs/netlify` adapter rejects `astro preview`. To eyeball a build, serve the static output instead (e.g. `npx serve dist`).
 - `npm run styles` — compile every `src/styles/less/*.less` to its matching `.css` (`lessc --math=always`). Run after editing any `.less`.
-- No test or lint scripts exist. `npm run astro -- check` does a typecheck but first prompts to install `@astrojs/check` + `typescript` (not currently in `package.json`).
+- `npm run shots` — build, then screenshot every page at mobile + desktop into `screenshots/` (see Visual verification). `npm run screenshot` captures without rebuilding.
+- No test or lint scripts exist. `npm run astro -- check` typechecks (`@astrojs/check` + `typescript` are in `devDependencies`).
 
 ## Styling: LESS is the source, CSS is generated — do NOT hand-edit CSS
 
@@ -43,3 +44,21 @@ Nav/footer/CTA links point to `/contact.html`, `/portfolio.html`, etc. (e.g. `Na
 ## Frontend design skill
 
 The Anthropic `frontend-design` skill is installed at `.opencode/skills/frontend-design/` and registered via `opencode.json`. Load it (skill tool) before any non-trivial visual/UI work — new sections, restyling, or layout changes — to keep the site distinctive rather than templated.
+
+## Visual verification
+
+The frontend-design skill asks you to critique your work visually. Two ways to do that here:
+
+- **Automated screenshots (no manual steps):** `npm run shots` builds and captures every page at mobile (375×812) and desktop (1440×900) into `screenshots/` (gitignored). `scripts/screenshot.mjs` serves `dist/` via a tiny built-in Node server and drives headless Chromium through Playwright. One-time setup: `npx playwright install chromium`. Inspect the PNGs (Read tool) to judge layout/spacing/type. This cannot exercise JS interactions (hover, the gallery lightbox).
+- **Interactive (for JS behavior):** connect the Browser MCP tab (click the Browser MCP extension → Connect), run `npm run dev`, and drive `localhost:4321`. Required for things a static screenshot can't show, e.g. opening/zooming/closing the portfolio gallery.
+
+`npm run preview` does **not** work (the Netlify adapter rejects `astro preview`); use the two paths above instead.
+
+## Subagents
+
+Two project subagents are defined in `.opencode/agent/` for cost/efficiency:
+
+- `recon` (haiku, read-only) — codebase discovery and mechanical verification (finding selectors, dead refs, inline-style inventories, diff/grep checks). Returns compact findings; never edits or commits.
+- `harness` (haiku) — runs build/screenshot commands and reports artifact paths/errors; never edits, commits, or judges visual quality.
+
+Delegate discovery and build/screenshot runs to these; keep design decisions, code authoring, and visual judgment in the primary (stronger) model.
