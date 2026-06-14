@@ -4,13 +4,13 @@
 /* Mobile */
 @media only screen and (min-width: 0rem) {
   :root {
-    --primary: #853a3a;
-    --primaryLight: #001f3f;
-    --secondary: #e4a95f;
-    --secondaryLight: #ffba43;
+    --primary: #853A3A;
+    --primaryLight: #001F3F;
+    --secondary: #E4A95F;
+    --secondaryLight: #FFBA43;
     --headerColor: #1a1a1a;
-    --bodyTextColor: #4e4b66;
-    --bodyTextColorWhite: #fafbfc;
+    --bodyTextColor: #4E4B66;
+    --bodyTextColorWhite: #FAFBFC;
     /* 13px - 16px */
     --topperFontSize: clamp(0.8125rem, 1.6vw, 1rem);
     /* 31px - 49px */
@@ -21,38 +21,26 @@
   }
   /* roboto-regular - latin */
   @font-face {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    src: local(""),
-      url("/fonts/roboto-v29-latin-regular.woff2") format("woff2"),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/fonts/roboto-v29-latin-regular.woff") format("woff");
-
+    src: local(''), url('/fonts/roboto-v29-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/roboto-v29-latin-regular.woff') format('woff');
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* roboto-700 - latin */
   @font-face {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
-    src: local(""),
-      url("/fonts/roboto-v29-latin-700.woff2") format("woff2"),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/fonts/roboto-v29-latin-700.woff") format("woff");
-
+    src: local(''), url('/fonts/roboto-v29-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/roboto-v29-latin-700.woff') format('woff');
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* roboto-900 - latin */
   @font-face {
-    font-family: "Roboto";
+    font-family: 'Roboto';
     font-style: normal;
     font-weight: 900;
-    src: local(""),
-      url("/fonts/roboto-v29-latin-900.woff2") format("woff2"),
-      /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url("/fonts/roboto-v29-latin-900.woff") format("woff");
-
+    src: local(''), url('/fonts/roboto-v29-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */ url('/fonts/roboto-v29-latin-900.woff') format('woff');
     /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   body,
@@ -60,7 +48,7 @@
     margin: 0;
     padding: 0;
     font-size: 100%;
-    font-family: "Roboto", Arial, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     color: var(--bodyTextColor);
     overflow-x: hidden;
   }
@@ -155,7 +143,7 @@
     box-sizing: border-box;
   }
   .cs-button-solid:before {
-    content: "";
+    content: '';
     position: absolute;
     height: 100%;
     width: 0%;
@@ -237,15 +225,15 @@
   #dark-mode-toggle:hover {
     cursor: pointer;
   }
-
   .cs-li-contact {
     visibility: hidden;
   }
-
   #cs-expanded > *:last-child {
     position: absolute;
-    left: -9999px; /* Move far off-screen */
-    top: 0; /* Or adjust as needed */
+    left: -9999px;
+    /* Move far off-screen */
+    top: 0;
+    /* Or adjust as needed */
   }
 }
 /*-- -------------------------- -->
@@ -267,7 +255,7 @@
     z-index: 10000;
   }
   #cs-navigation:before {
-    content: "";
+    content: '';
     width: 100%;
     height: 0vh;
     background: rgba(0, 0, 0, 0.6);
@@ -293,9 +281,6 @@
   #cs-navigation.cs-active .cs-li {
     transform: translateY(0);
     opacity: 1;
-  }
-  #cs-li.cs-contact {
-    display: block;
   }
   #cs-navigation .cs-container {
     width: 100%;
@@ -366,7 +351,7 @@
   #cs-navigation .cs-line1 {
     top: 0;
     transform-origin: center;
-    transition: transform 0.5s, top 0.3s, left 0.3s;
+    transition: transform 0.5s, top 0.3S, left 0.3S;
     animation-duration: 0.7s;
     animation-timing-function: ease;
     animation-fill-mode: forwards;
@@ -475,7 +460,7 @@
   }
   #cs-navigation .cs-li-link:before {
     /* active state underline */
-    content: "";
+    content: '';
     width: 100%;
     height: 1px;
     /* background: var(--secondary); */
@@ -490,6 +475,9 @@
   }
   #cs-navigation .cs-button-solid {
     display: none;
+  }
+  #cs-li.cs-contact {
+    display: block;
   }
 }
 /* Dark Mode */
@@ -590,7 +578,7 @@
   }
   #cs-navigation .cs-li-link:before {
     /* active state underline */
-    content: "";
+    content: '';
     width: 0%;
     height: 2px;
     /* background: var(--primary); */
@@ -661,7 +649,7 @@
   }
   #banner-712 .cs-background:before {
     /* background color overlay */
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     height: 100%;
@@ -686,11 +674,7 @@
 @media only screen and (min-width: 48rem) {
   #banner-712 .cs-background:before {
     opacity: 1;
-    background: linear-gradient(
-      90.01deg,
-      rgba(0, 0, 0, 0.9) 16.86%,
-      rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(90.01deg, rgba(0, 0, 0, 0.9) 16.86%, rgba(0, 0, 0, 0) 100%);
   }
 }
 /*-- -------------------------- -->
@@ -774,7 +758,7 @@
   }
   #cs-footer-269 .cs-nav-link:before {
     /* underline */
-    content: "";
+    content: '';
     width: 0%;
     height: 0.125rem;
     /* current color of the parent */
@@ -832,7 +816,7 @@
   #cs-footer-269 .cs-social-link {
     width: 1.5rem;
     height: 1.5rem;
-    background-color: #4e4b66;
+    background-color: #4E4B66;
     border-radius: 50%;
     display: flex;
     justify-content: center;

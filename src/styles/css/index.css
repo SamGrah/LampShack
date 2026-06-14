@@ -15,12 +15,6 @@
     /* Prevents white rectangle pseudos from overlapping the sections below */
     overflow: hidden;
   }
-
-  #hero-81 .cs-text {
-    text-wrap: balance;
-    width: 60%;
-  }
-
   #hero-81:before {
     /* Left side of the triangle */
     content: "";
@@ -90,6 +84,10 @@
     width: 100%;
     max-width: 67.5rem;
     margin: auto;
+  }
+  #hero-81 .cs-text {
+    text-wrap: balance;
+    width: 60%;
   }
   #hero-81 .cs-title {
     /* 39px - 61px */
@@ -175,7 +173,7 @@
     /* negative margin pulls it up on top of the hero section */
     /* -46px to -76px - we're calculating whatever clamp is and multiplying by -1
             to make the value negative since clamp doesn't work with negative values */
-    margin-top: calc(clamp(5rem, 13vw, 4.75rem) * -1);
+    margin-top: calc(clamp(5rem, 13vw, 4.75rem)*-1);
     /* 40px - 60px top and bottom, 16px - 60px left & right */
     padding: clamp(2.5rem, 4.7vw, 3.75rem) clamp(1rem, 4vw, 3.75rem);
     box-shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.05);
@@ -238,7 +236,7 @@
     max-width: 80rem;
     /* -76px to -320px - we're calculating whatever clamp is and multiplying by -1
                to make the value negative since clamp doesn't work with negative values */
-    margin-top: calc(clamp(4.75rem, 20vw, 20rem) * -1);
+    margin-top: calc(clamp(4.75rem, 20vw, 20rem)*-1);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -362,8 +360,8 @@
     display: block;
     position: absolute;
     /* 16px - 28px, wrapped in calc function to multiple by negative 1 and get a negative clamp value */
-    bottom: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
-    left: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
+    bottom: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
+    left: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
   }
 }
 /*-- -------------------------- -->
@@ -399,8 +397,8 @@
     position: absolute;
     left: auto;
     /* 16px - 28px, wrapped in calc function to multiple by negative 1 and get a negative clamp value */
-    bottom: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
-    right: calc(clamp(1rem, 2.4vw, 1.75rem) * -1);
+    bottom: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
+    right: calc(clamp(1rem, 2.4vw, 1.75rem)*-1);
   }
 }
 /* Dark Mode */
@@ -514,8 +512,7 @@
     left: 0;
     /* 16px - 20px */
     gap: clamp(1rem, 1vw, 1.25rem);
-    transition: transform 0.7s, opacity 0.3s, visibility 0.5s, top 0.3s,
-      left 0.3s;
+    transition: transform 0.7s, opacity 0.3s, visibility 0.5s, top 0.3s, left 0.3s;
     /* makes the transfrom scaling orgin the top left corner, dictates the direction by which the scale transforms animate towards */
     transform-origin: left top;
   }

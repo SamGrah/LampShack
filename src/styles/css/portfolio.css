@@ -6,6 +6,8 @@
   #gallery-48 {
     padding: var(--sectionPadding);
     position: relative;
+    /* Lightbox (CSS-only) */
+    /* Base transition for gallery items */
   }
   #gallery-48 .cs-container {
     width: 100%;
@@ -92,14 +94,11 @@
     /* transition: -webkit-transform 0.25s ease; */
     /* transition: transform 0.25s ease; */
   }
-
-  /* Lightbox (CSS-only) */
   #gallery-48 .cs-lightbox-item {
     width: 100%;
     position: relative;
     z-index: 1;
   }
-
   #gallery-48 .cs-lightbox-toggle {
     position: absolute;
     width: 1px;
@@ -107,16 +106,13 @@
     opacity: 0;
     pointer-events: none;
   }
-
   #gallery-48 .cs-lightbox-thumb {
     cursor: zoom-in;
   }
-
   #gallery-48 .cs-lightbox-toggle:focus-visible + .cs-lightbox-thumb {
     outline: 2px solid rgba(0, 0, 0, 0.6);
     outline-offset: 4px;
   }
-
   #gallery-48 .cs-lightbox-overlay {
     position: fixed;
     inset: 0;
@@ -130,12 +126,10 @@
     opacity: 0;
     pointer-events: none;
   }
-
   #gallery-48 .cs-lightbox-toggle:checked ~ .cs-lightbox-overlay {
     opacity: 1;
     pointer-events: auto;
   }
-
   #gallery-48 .cs-lightbox-dialog {
     display: block;
     max-width: min(92vw, 70rem);
@@ -144,11 +138,9 @@
     width: auto;
     height: auto;
   }
-
   #gallery-48 .cs-lightbox-toggle:checked ~ .cs-lightbox-overlay .cs-lightbox-dialog {
     transform: scale(1);
   }
-
   #gallery-48 .cs-lightbox-dialog img {
     position: static;
     display: block;
@@ -160,144 +152,30 @@
     border-radius: 6px;
     box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
   }
-
   #gallery-48 .cs-lightbox-item.is-active {
     z-index: 2147483647;
   }
-
   #gallery-48 .cs-lightbox-item.is-active .cs-lightbox-thumb {
     position: relative;
     z-index: 2147483647;
   }
-
-  /* During transitions: hide non-active items */
-  html.lb-vt #gallery-48 .cs-lightbox-item:not(.is-active) {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  html.lb-vt #gallery-48 .cs-lightbox-item.is-active {
-    opacity: 1;
-    z-index: 2147483647;
-    position: relative;
-  }
-
-  /* Base transition for gallery items */
   #gallery-48 .cs-lightbox-item {
     transition: opacity 0.1s ease-out;
   }
-
-  /* Fade out non-active items before opening */
-  html.lb-fade-out #gallery-48 .cs-lightbox-item:not(.is-active) {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* When lightbox is open: hide all items except the one with checked toggle */
-  #gallery-48:has(.cs-lightbox-toggle:checked) .cs-lightbox-item {
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  #gallery-48 .cs-lightbox-item:has(.cs-lightbox-toggle:checked) {
-    opacity: 1;
-    pointer-events: auto;
-    z-index: 2147483647;
-  }
-
   #gallery-48 .cs-lightbox-toggle:checked + .cs-lightbox-thumb {
     opacity: 0;
     pointer-events: none;
   }
-
   #gallery-48 .cs-lightbox-thumb img,
   #gallery-48 .cs-lightbox-dialog img {
     view-transition-name: none;
   }
-
   #gallery-48 .cs-lightbox-toggle:not(:checked) + .cs-lightbox-thumb img {
     view-transition-name: var(--lb-name);
   }
-
   #gallery-48 .cs-lightbox-toggle:checked ~ .cs-lightbox-overlay .cs-lightbox-dialog img {
     view-transition-name: var(--lb-name);
   }
-
-  ::view-transition {
-    position: fixed;
-    inset: 0;
-    z-index: 2147483647;
-    pointer-events: none;
-  }
-
-  /* Prevent default crossfade on root during lightbox transitions */
-  html.lb-vt::view-transition-old(root),
-  html.lb-vt::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-  }
-
-  :root::view-transition-group(lb-1),
-  :root::view-transition-group(lb-2),
-  :root::view-transition-group(lb-3),
-  :root::view-transition-group(lb-4),
-  :root::view-transition-group(lb-5),
-  :root::view-transition-group(lb-6),
-  :root::view-transition-group(lb-7),
-  :root::view-transition-group(lb-8),
-  :root::view-transition-group(lb-9) {
-    position: fixed;
-    inset: 0;
-    z-index: 2147483647;
-    pointer-events: none;
-    animation-duration: 400ms;
-    animation-timing-function: ease;
-  }
-
-  :root::view-transition-image-pair(lb-1),
-  :root::view-transition-image-pair(lb-2),
-  :root::view-transition-image-pair(lb-3),
-  :root::view-transition-image-pair(lb-4),
-  :root::view-transition-image-pair(lb-5),
-  :root::view-transition-image-pair(lb-6),
-  :root::view-transition-image-pair(lb-7),
-  :root::view-transition-image-pair(lb-8),
-  :root::view-transition-image-pair(lb-9) {
-    position: fixed;
-    inset: 0;
-    z-index: 2147483647;
-    pointer-events: none;
-  }
-
-  :root::view-transition-old(lb-1),
-  :root::view-transition-old(lb-2),
-  :root::view-transition-old(lb-3),
-  :root::view-transition-old(lb-4),
-  :root::view-transition-old(lb-5),
-  :root::view-transition-old(lb-6),
-  :root::view-transition-old(lb-7),
-  :root::view-transition-old(lb-8),
-  :root::view-transition-old(lb-9),
-  :root::view-transition-new(lb-1),
-  :root::view-transition-new(lb-2),
-  :root::view-transition-new(lb-3),
-  :root::view-transition-new(lb-4),
-  :root::view-transition-new(lb-5),
-  :root::view-transition-new(lb-6),
-  :root::view-transition-new(lb-7),
-  :root::view-transition-new(lb-8),
-  :root::view-transition-new(lb-9) {
-    position: absolute;
-    inset: 0;
-    animation-duration: 400ms;
-    animation-timing-function: ease;
-  }
-
-  /* #gallery-48 .cs-picture img:active{
-    -webkit-transform: scale(2);
-    transform: scale(2);   
-  } */
-
   #gallery-48 .cs-row-1 .cs-picture-1 {
     height: 35.4375em;
   }
@@ -325,7 +203,96 @@
   #gallery-48 .cs-row-3 .cs-picture-3 {
     height: 39.3125em;
   }
-
+  /* During transitions: hide non-active items */
+  html.lb-vt #gallery-48 .cs-lightbox-item:not(.is-active) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  html.lb-vt #gallery-48 .cs-lightbox-item.is-active {
+    opacity: 1;
+    z-index: 2147483647;
+    position: relative;
+  }
+  /* Fade out non-active items before opening */
+  html.lb-fade-out #gallery-48 .cs-lightbox-item:not(.is-active) {
+    opacity: 0;
+    pointer-events: none;
+  }
+  /* When lightbox is open: hide all items except the one with checked toggle */
+  #gallery-48:has(.cs-lightbox-toggle:checked) .cs-lightbox-item {
+    opacity: 0;
+    pointer-events: none;
+  }
+  #gallery-48 .cs-lightbox-item:has(.cs-lightbox-toggle:checked) {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 2147483647;
+  }
+  ::view-transition {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+  }
+  /* Prevent default crossfade on root during lightbox transitions */
+  html.lb-vt::view-transition-old(root),
+  html.lb-vt::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+  :root::view-transition-group(lb-1),
+  :root::view-transition-group(lb-2),
+  :root::view-transition-group(lb-3),
+  :root::view-transition-group(lb-4),
+  :root::view-transition-group(lb-5),
+  :root::view-transition-group(lb-6),
+  :root::view-transition-group(lb-7),
+  :root::view-transition-group(lb-8),
+  :root::view-transition-group(lb-9) {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+    animation-duration: 400ms;
+    animation-timing-function: ease;
+  }
+  :root::view-transition-image-pair(lb-1),
+  :root::view-transition-image-pair(lb-2),
+  :root::view-transition-image-pair(lb-3),
+  :root::view-transition-image-pair(lb-4),
+  :root::view-transition-image-pair(lb-5),
+  :root::view-transition-image-pair(lb-6),
+  :root::view-transition-image-pair(lb-7),
+  :root::view-transition-image-pair(lb-8),
+  :root::view-transition-image-pair(lb-9) {
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    pointer-events: none;
+  }
+  :root::view-transition-old(lb-1),
+  :root::view-transition-old(lb-2),
+  :root::view-transition-old(lb-3),
+  :root::view-transition-old(lb-4),
+  :root::view-transition-old(lb-5),
+  :root::view-transition-old(lb-6),
+  :root::view-transition-old(lb-7),
+  :root::view-transition-old(lb-8),
+  :root::view-transition-old(lb-9),
+  :root::view-transition-new(lb-1),
+  :root::view-transition-new(lb-2),
+  :root::view-transition-new(lb-3),
+  :root::view-transition-new(lb-4),
+  :root::view-transition-new(lb-5),
+  :root::view-transition-new(lb-6),
+  :root::view-transition-new(lb-7),
+  :root::view-transition-new(lb-8),
+  :root::view-transition-new(lb-9) {
+    position: absolute;
+    inset: 0;
+    animation-duration: 400ms;
+    animation-timing-function: ease;
+  }
   /* Base transition for fade effect */
   #cs-navigation,
   footer,
@@ -333,7 +300,6 @@
   #gallery-48 .cs-content {
     transition: opacity 0.1s ease-out;
   }
-
   /* Fade out before opening lightbox */
   html.lb-fade-out #cs-navigation,
   html.lb-fade-out footer,
@@ -342,7 +308,6 @@
     opacity: 0 !important;
     pointer-events: none !important;
   }
-
   /* Hide navbar, footer, banner, and content during lightbox transitions and when open */
   html.lb-vt #cs-navigation,
   html.lb-vt footer,
@@ -416,7 +381,7 @@
   }
   #cta-51 .cs-picture:before {
     /* black color overlay */
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     height: 100%;

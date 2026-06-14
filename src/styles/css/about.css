@@ -230,7 +230,7 @@
   #cta-51 .cs-text {
     /* Override.  cs-topper cs-title and first cs-text should be removed and put into your global css sheet so it can control every instance of them on your site and is consistent. This selector is a section specific override that stays inside this stitch */
     margin-bottom: 1rem;
-    opacity: .8;
+    opacity: 0.8;
   }
   #cta-51 .cs-text:last-of-type {
     margin-bottom: 2rem;
@@ -252,7 +252,7 @@
     height: 100%;
     width: 100%;
     background: #000;
-    opacity: .8;
+    opacity: 0.8;
     top: 0;
     left: 0;
     z-index: 1;

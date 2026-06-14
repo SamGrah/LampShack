@@ -50,7 +50,7 @@
     height: 4rem;
     margin-top: 0.25rem;
     padding-left: 1.25rem;
-    border: 1px solid #b4b2c7;
+    border: 1px solid #B4B2C7;
     border-radius: 0.25rem;
     /* prevents border & padding from affecting height */
     box-sizing: border-box;
@@ -102,7 +102,7 @@
     display: block;
   }
   #cs-contact-265 .cs-link,
-  .cs-text {
+  #cs-contact-265 .cs-text {
     /* 16px - 20px */
     font-size: clamp(1rem, 3vw, 1.25rem);
     line-height: 1.2em;
@@ -112,9 +112,10 @@
     display: block;
     position: relative;
   }
-  #cs-contact-265 .cs-link:before {
+  #cs-contact-265 .cs-link:before,
+  #cs-contact-265 .cs-text:before {
     /* Animated underline */
-    content: "";
+    content: '';
     width: 0%;
     height: 2px;
     /* current color of the parent */
@@ -126,10 +127,12 @@
     left: 0;
     transition: width 0.3s;
   }
-  #cs-contact-265 .cs-link:hover:before {
+  #cs-contact-265 .cs-link:hover:before,
+  #cs-contact-265 .cs-text:hover:before {
     width: 100%;
   }
-  #cs-contact-265 .cs-link:last-of-type {
+  #cs-contact-265 .cs-link:last-of-type,
+  #cs-contact-265 .cs-text:last-of-type {
     margin-bottom: 0;
   }
   #cs-contact-265 .cs-block {
@@ -148,16 +151,12 @@
   }
   #cs-contact-265 .cs-bg-picture:before {
     /* background color overlay */
-    content: "";
+    content: '';
     position: absolute;
     display: block;
     height: 100%;
     width: 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.8) 100%
-    );
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
     top: 0;
     left: 0;
     z-index: 1;
