@@ -244,6 +244,32 @@
   body.cs-open {
     overflow: hidden;
   }
+  /* Full-screen blur backdrop behind the menu. Lives on the body (not the
+       header) so it sits entirely behind #cs-navigation and never dims the
+       navbar. Full-size from the start; only opacity animates, so it fades in
+       rather than sliding down. */
+  body:before {
+    content: '';
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+  }
+  /* the menu-open signal is #cs-navigation.cs-active (body.cs-open is the
+       page's default/closed state, so it can't drive this) */
+  body:has(#cs-navigation.cs-active):before {
+    opacity: 1;
+    pointer-events: auto;
+  }
   #cs-navigation {
     width: 100%;
     padding: 0.75rem 1rem;
@@ -253,25 +279,6 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     position: fixed;
     z-index: 10000;
-  }
-  #cs-navigation:before {
-    content: '';
-    width: 100%;
-    height: 0vh;
-    background: rgba(0, 0, 0, 0.6);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    position: absolute;
-    display: block;
-    top: 100%;
-    right: 0;
-    z-index: -1100;
-    opacity: 0;
-    transition: height 0.5s, opacity 0.5s;
-  }
-  #cs-navigation.cs-active:before {
-    height: 150vh;
-    opacity: 1;
   }
   #cs-navigation.cs-active .cs-ul-wrapper {
     opacity: 1;
@@ -376,7 +383,6 @@
     padding-bottom: 2.4em;
     opacity: 0;
     background-color: #fff;
-    box-shadow: inset rgba(0, 0, 0, 0.2) 0px 8px 24px;
     overflow: hidden;
     position: absolute;
     top: 100%;
@@ -392,7 +398,7 @@
     width: 100%;
     height: auto;
     max-height: 65vh;
-    overflow: scroll;
+    overflow: auto;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
