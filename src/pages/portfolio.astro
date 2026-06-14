@@ -162,7 +162,17 @@ const pictureHeights = [
       }
 
       function lockScroll(lock: boolean) {
-        document.documentElement.style.overflow = lock ? "hidden" : "";
+        const root = document.documentElement;
+        if (lock) {
+          // Compensate for the scrollbar that `overflow: hidden` removes, so
+          // the layout width stays constant and the gallery doesn't shift.
+          const sbw = window.innerWidth - root.clientWidth;
+          if (sbw > 0) root.style.paddingRight = `${sbw}px`;
+          root.style.overflow = "hidden";
+        } else {
+          root.style.overflow = "";
+          root.style.paddingRight = "";
+        }
       }
 
       async function open(t: HTMLButtonElement) {
