@@ -6,7 +6,11 @@ import BasePage from "../components/BasePage.astro";
 import ReviewQuote from "../components/ReviewQuote.astro";
 ---
 
-<BasePage>
+<BasePage
+  title="Reviews | What Customers Say — The Lamp Shack, Waterford MI"
+  description="Read reviews from satisfied customers of The Lamp Shack in Waterford, MI, from Google Reviews and Yellow Pages."
+  path="/reviews"
+>
   <main id="main">
     <!-- ============================================ -->
     <!--                   Banner                     -->
@@ -18,7 +22,7 @@ import ReviewQuote from "../components/ReviewQuote.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <Image class = "cs-background" src={ChandelierImage} alt="pills" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
+        <Image class = "cs-background" src={ChandelierImage} alt="" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
       </picture>
     </div>
 

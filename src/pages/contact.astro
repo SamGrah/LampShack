@@ -5,7 +5,11 @@ import "../styles/css/contact.css";
 import BasePage from "../components/BasePage.astro";
 ---
 
-<BasePage>
+<BasePage
+  title="Contact | Call Ahead — The Lamp Shack, Waterford MI"
+  description="Contact The Lamp Shack in Waterford, MI. Call (248) 672-2059 before visiting. 618 W Preda Drive. Hours: weekdays 10am–4pm, Saturday 10am–3pm, Sunday 11am–3pm."
+  path="/contact"
+>
   <main id="main">
     <!-- ============================================ -->
     <!--                   Banner                     -->
@@ -17,7 +21,7 @@ import BasePage from "../components/BasePage.astro";
       </div>
       <!--Background Image-->
       <picture class="cs-background">
-        <Image class="cs-background" src={WorkbenchImage} alt="workbench" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
+        <Image class="cs-background" src={WorkbenchImage} alt="" width="1280" height="568" decoding="async" loading="eager" aria-hidden="true" />
       </picture>
     </div>
 

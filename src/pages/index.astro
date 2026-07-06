@@ -8,7 +8,11 @@ import "../styles/css/index.css";
 import BasePage from "../components/BasePage.astro";
 ---
 
-<BasePage>
+<BasePage
+  title="Lamp Shack | Lamp & Lighting Repair in Waterford, MI"
+  description="Experienced lamp and lighting repair in Waterford, MI. Antique, vintage, and modern fixtures restored — wiring, sockets, switches, and custom design. Call ahead before visiting."
+  path="/"
+>
   <main id="main">
     <!-- ============================================ -->
     <!--                    Hero                      -->
@@ -25,7 +29,7 @@ import BasePage from "../components/BasePage.astro";
 
       <!-- Background Image -->
       <picture class="cs-background">
-        <Image class="cs-background" src={WorkbenchImage} alt="workbench" width="2250" height="1500" decoding="async" loading="lazy" aria-hidden="true" />
+        <Image class="cs-background" src={WorkbenchImage} alt="" width="2250" height="1500" decoding="async" loading="lazy" aria-hidden="true" />
       </picture> 
     </section>
 
@@ -38,7 +42,7 @@ import BasePage from "../components/BasePage.astro";
         <li class="cs-item">
           <picture class="cs-icon">
             <Image loading="lazy" decoding="async" src={Toolbox} 
-              alt="appliance" width="52" height="52" aria-hidden="true">
+              alt="" width="52" height="52" aria-hidden="true">
           </picture>
           <h2 class="cs-title">Lamp Repair</h2>
           <p class="cs-text">
@@ -49,7 +53,7 @@ import BasePage from "../components/BasePage.astro";
         <li class="cs-item">
           <picture class="cs-icon">
             <Image loading="lazy" decoding="async" src={Buildings}
-              alt="appliance" width="52" height="52" aria-hidden="true">
+              alt="" width="52" height="52" aria-hidden="true">
           </picture>
           <h2 class="cs-title">Electrical & Fixtures</h2>
           <p class="cs-text">
@@ -60,7 +64,7 @@ import BasePage from "../components/BasePage.astro";
         <li class="cs-item">
           <picture class="cs-icon">
             <Image loading="lazy" decoding="async" src={Gear}
-              alt="appliance" width="52" height="52" aria-hidden="true">
+              alt="" width="52" height="52" aria-hidden="true">
           </picture>
           <h2 class="cs-title">Custom Design</h2>
           <p class="cs-text">

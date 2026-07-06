@@ -5,6 +5,78 @@ import "../styles/css/dark.css";
 
 import NavBar from "../components/NavBar.astro";
 import Footer from "../components/Footer.astro";
+
+const SITE = "https://www.thelampshack.com";
+const DEFAULT_TITLE = "Lamp Shack | Lamp & Lighting Repair in Waterford, MI";
+const DEFAULT_DESCRIPTION =
+  "Experienced lamp and lighting repair service in Waterford, MI offering personalized and meticulous restoration. Call ahead before visiting.";
+
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+}
+
+const {
+  title = DEFAULT_TITLE,
+  description = DEFAULT_DESCRIPTION,
+  path = "/",
+} = Astro.props;
+
+// Normalize the canonical/OG URL for this page.
+const canonical = new URL(path, SITE).href;
+const ogImage = new URL("/assets/images/LampShackLogo.svg", SITE).href;
+
+// LocalBusiness structured data — rendered on every page so the business
+// details are always discoverable by search engines and the local pack.
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "@id": `${SITE}/#business`,
+  name: "The Lamp Shack",
+  description: DEFAULT_DESCRIPTION,
+  url: SITE,
+  telephone: "+1-248-672-2059",
+  image: ogImage,
+  priceRange: "$$",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "618 W Preda Drive",
+    addressLocality: "Waterford",
+    addressRegion: "MI",
+    postalCode: "48328",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 42.64628168828236,
+    longitude: -83.38147643241459,
+  },
+  areaServed: {
+    "@type": "City",
+    name: "Waterford, MI",
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "10:00",
+      closes: "16:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Saturday",
+      opens: "10:00",
+      closes: "15:00",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Sunday",
+      opens: "11:00",
+      closes: "15:00",
+    },
+  ],
+};
 ---
 
 <!DOCTYPE html>
@@ -29,43 +101,34 @@ import Footer from "../components/Footer.astro";
     </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--Swap our for actual link-->
-    <link rel="canonical" href="https://www.thelampshack.com/">
+    <link rel="canonical" href={canonical}>
 
-    <meta name="description"
-      content="Experienced lamp and lighting repair service offering personalized and meticulous restoration. Open M-F 10-4pm.">
-    <meta name="keywords" content="lamp ">
+    <meta name="description" content={description}>
 
     <!--Social Media Display-->
-    <meta property="og:title" content="Lamp Shack | Waterford, MI" />
-    <meta property="og:description"
-      content="Experienced lamp and lighting repair service offering personalized and meticulous restoration. Open M-F 10-4pm." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://www.thelampshack.com/" />
-    <meta property="og:image" content="/assets/images/LampShackLogo.svg" />
-    <meta property="og:image:secure_url"
-      content="/assets/images/LampShackLogo.svg" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:secure_url" content={ogImage} />
 
     <!--Favicons-->
-    <!-- <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png"> -->
-    <link rel="icon" type="image/svg" href="LampWhite.svg">
-    <!-- <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png"> -->
-    <!-- <link rel="manifest" href="/assets/favicons/site.webmanifest"> -->
+    <link rel="icon" type="image/svg+xml" href="/LampWhite.svg">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff"> 
+    <meta name="theme-color" content="#ffffff">
 
-    <!-- Preload -->
-    <!-- <link rel="preload" as="image" href="assets/images/logo-light.png">
+    <!-- Preload critical fonts to avoid a flash of invisible text -->
     <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v29-latin-regular.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v29-latin-700.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/roboto-v29-latin-900.woff2" crossorigin>
 
-    <link rel="stylesheet" href="/css/core-styles.css">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/dark.css"> -->
+    <!-- LocalBusiness structured data -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(localBusinessSchema)} />
 
-    <title>Lamp Shack | Waterford, MI</title>
+    <title>{title}</title>
   </head>
 
   <body class="cs-open" transition:animate="fade">
